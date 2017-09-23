@@ -1,0 +1,23 @@
+version: "1"
+
+# CakeApp configuration file
+# Your application will be server under UID.cakeapp.sk
+# Example: static.cakeapp.sk/bd3b3fd5-557e-4df7-86bb-896b9bca99b9
+
+app:
+    name: moja-appka
+    # Type of project, supported: static, cake
+    type: cake
+    # Bucket is place from where is your app server
+    # Must be created before otherwise deploy fails
+    # DO NOT use one bucket for more ptojects - your files will be overwritten
+    bucket: bd3b3fd5-557e-4df7-86bb-896b9bca99b9
+    # UID from your project
+    repository: 22006c04-4e70-48ab-b7be-beec039c4057
+
+# Only for Cake apps
+db:
+    server: db
+    database: my-db-name
+    user: dbuser
+    password: dbpaSSw0rd

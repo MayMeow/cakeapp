@@ -1,0 +1,80 @@
+{
+    "name": "cakeapp/cakeapp-ce",
+    "description": "CodeAdvent 2016 skeleton app for CakePHP",
+    "homepage": "https://jdmaymeow.com/code-advent/2016/",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6",
+        "cakephp/cakephp": ">=3.3.2 <4.0.0",
+        "mobiledetect/mobiledetectlib": "2.*",
+        "cakephp/migrations": "~1.0",
+        "cakephp/plugin-installer": "*",
+        "may-meow-cloud/socket-server": "~0.0.1",
+        "maymeow/may-db": "^1.0",
+        "jdmaymeow/cake-highlight": "~1.0",
+        "jdmaymeow/cake-file": "~1.1",
+        "maymeow/maymeow-io": "^1.0",
+        "maymeow/may-encrypt": "^2017.1",
+        "emojione/emojione": "^3.0",
+        "symfony/process": "^3.3",
+        "maymeow/uuid": "^1.0",
+        "cakeapp/cake-storage": "^2017.9",
+        "cakeapp/cake-auth": "^2017.9",
+        "cakeapp/cake-networking": "^2017.9",
+        "cakeapp/cake-resources": "^2017.9",
+        "cakeapp/cake-logs": "^2017.9",
+        "cakeapp/cake-compute": "^2017.9",
+        "cakeapp/cake-home": "^2017.9",
+        "cakeapp/cake-to-do": "^2017.9",
+        "cakeapp/cake-communication": "^2017.9",
+        "cakeapp/cake-taxonomy": "^2017.9",
+        "cakeapp/cake-app-shell": "^2017.9",
+        "cakeapp/cake-app": "^2017.9",
+        "cakeapp/cake-app-io": "^2017.9",
+        "cakeapp/cake-app-licensing": "^2017.9",
+        "cakeapp/cake-app-core": "^2017.9",
+        "cakeapp/cake-configure": "^2017.9",
+        "cakeapp/may-meow": "^2017.9",
+        "cakeapp/cake-bootstrap": "^2017.9",
+        "cakeapp/cake-font-awesome": "^2017.9",
+        "cakeapp/cake-git": "^2017.9",
+        "cakeapp/cake-activity": "^2017.9",
+        "cakeapp/cake-service": "^2017.9",
+        "cakeapp-ee/cake-certification-authority": "^2017.9"
+    },
+    "require-dev": {
+        "psy/psysh": "@stable",
+        "cakephp/debug_kit": "~3.2",
+        "cakephp/bake": "~1.1"
+    },
+    "suggest": {
+        "markstory/asset_compress": "An asset compression plugin which provides file concatenation and a flexible filter system for preprocessing and minification.",
+        "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
+        "cakephp/cakephp-codesniffer": "Allows to check the code against the coding standards used in CakePHP."
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "App\\Console\\Installer::postInstall",
+        "post-create-project-cmd": "App\\Console\\Installer::postInstall",
+        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
+        "check": [
+            "@test",
+            "@cs-check"
+        ],
+        "cs-check": "vendor/bin/phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+        "cs-fix": "vendor/bin/phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+        "test": "vendor/bin/phpunit --colors=always"
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true
+}

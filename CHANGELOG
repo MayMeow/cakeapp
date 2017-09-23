@@ -1,0 +1,155 @@
+v 17.10 (unreleased)
+
+* Probably can be added simple CMS system for managing pages
+
+v 2017.9.2
+
+* NEW Projects - will contain Repositories and issues
+* NEW Activity Stream
+* NEW Incomming Webhooks
+* Update
+
+v 2017.9.1
+
+* NEW CakeAppLicensing plugin - Licenses management
+* NEW application Settings plugin
+* UPDATE Roles in Issues and Users controllers
+* UPDATE side navigation menu
+* UPDATE Top navigation bar is now 40px height
+* UPDATE Rename Logging to Monitoring
+* UPDATE Admin prefix will be used for setting application function
+* UPDATE Email sending from issues only for EES and EEP license
+* FIX wrong migration name prevent some migrations to do
+
+v 2017.9
+
+* NEW Milestones in service Desk
+* NEW navigation
+
+v 2017.8.6
+
+* Update graphics for Auth application and SSH keys controllers
+* FIX Navigation menu for Companies and Contacts
+* FIX graphic for CA's controllers
+* FIX Graphic for Cake Logs controllers
+* RESOLVE Error 500 on Issue edit !5
+* RESOLVE Access rights for CA !6
+* RESOLVE Access rights for Logging !7
+* RESOLVE Access rights for Issue View !8
+
+v 2017.8.5
+
+* New navigation type was added
+* NEW FontAwesom 5
+* Navigation bar ie higher now
+* CA is back, script was updated into v2017.8
+* ADD CakeLogs plugin
+* NEW Contacts and Companies in Resources
+* REMOVE search form from navigation bar
+
+v 2017.8.4
+
+* Section navigation was changed from buttons to navigation bar
+
+v 2017.8.4
+
+* Updated tependencies
+
+v 2017.8.2
+
+* Storage buckets is back
+* Resolved issues with restriction in projects when user wasn't admin
+
+v 2017.8
+
+* ADD Issues manager now detect email address in title and send mail
+* ADD support for authentication with SSH keys
+* UPDATE Issues page will now don't load vie VUE
+* CHANGE Database to PostgreSQL
+
+v 2017.7.1
+
+* ADD Branches, Tags and Commits for GIT Repository
+* NEW Ability to show file content from repository
+* NEW Input form for clone address in GIT
+* NEW Last Commit messages for files
+* UPDATE Docker compose file and new images
+* UPDATE Git storage default path changed to /cakephp/git-data
+* UPDATE User Data to webroot/user-data
+* UPDATE Paths for saving files will now create path from uuid
+* UPDATE Emoji in commit messages
+* FIX User's rights on Storage, Authentication and Resources plugins
+* FIX User menu is no more hidden on small and medium displays
+
+v 2017.7
+
+NEW GIT Repositories management
+
+* ADD GIT Repositories into Storage plugin
+* NEW Page header for all GIT and Resources pages
+* REMOVE Certificates from top Menu
+* REMOVE Networking
+* REMOVE Cloud Home
+* REMOVE Todos
+
+v 2017.6.2
+
+NEW Issues management system
+
+* ADD CakeService
+* ADD CakeComunication
+* NEW VueJS App for issues
+* NEW base image
+* REMOVE Config disk are no more presistent
+* REMOVE Docker Compute Engine
+
+v 2017.6.1
+
+* ADD Ability to sign server certificates
+
+v 2017.6
+
+* NEW Certificate Authority plugin
+* NEW Color of navigation bar for supported browsers
+* NEW MayMeow/may-encrypt package for certificates sign, supported are: ca, intermediate ca and user certificate
+* NEW Aviable to buy from Envato's CodeCanyon
+* UPDATE default config for using development server May-Lab
+* UPDATE FawIcon
+* UPDATE psy/psysh to version 0.8.6
+
+v 2017.5
+
+* NEW Release versioning
+* NEW Domains view now showing DNS record sets for current domain
+* UPDATE views for latest cake-bootstrap
+* UPDATE Jdmaymeow/CakeAuth to version 1.2.6
+* UPDATE Jdmaymeow/cake-bootstrap to version 1.2.8
+* UPDATE Psy/Psych to version 0.8.2
+* UPDATE Cakephp to version 3.4.7
+* UPDATE symfony/debug to 3.3.0
+
+v 1.0.1 rc1
+
+* ADD new configuration file for Code Advent
+* ADD Resource manager
+* ADD Rsync server for buckets
+* ADD Disks in storage plugin
+* ADD license file
+* ADD TwoStepAuth class
+* ADD Parsedown - Markdown paarser
+* ADD Logging plugin
+* UPDATE Authentication are now required for index and view actions too.
+* UPDATE Configuration file for codeadvent is now in mcloud.php (codeadvent.json will be removed in next release)
+* UPDATE Resources will have new seed migration
+* UPDATE path for rsync server to correct match with bucket name
+* UPDATE Disks view now showing price and percentage use of space
+* UPDATE Bootstrap to version 1.2.6
+* UPDATE FontAwesome to v 1.0.1
+* UPDATE all actions are now using admin layout
+* UPDATE some views to show documentation
+* FIX disks will store all data in _data folder
+
+v 1.0
+
+* Initial release
+* Add configuration for CakeAuth

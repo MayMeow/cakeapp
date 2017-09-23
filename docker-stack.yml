@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+    db:
+        image: mariadb:10
+        volumes:
+            - db_data:/var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: MayMeowCloud2017
+            MYSQL_DATABASE: maymeowcloud
+            MYSQL_USER: MayMeowCloud2017
+            MYSQL_PASSWORD: MayMeowCloud2017
+
+    platform:
+        build: .
+        depends_on:
+            - db
+            - redis
+        volumes:
+            - maymeowcloud_storage_buckets:/var/www/html/webroot/data/storage/buckets
+            - maymeowcloud_config:/var/www/html/config
+            - /cloud/disks:/var/www/html/webroot/data/storage/disks
+            - maymeowcloud_users_data:/var/www/html/webroot/data/users
+        #ports:
+        #    - "8081:80"
+        restart: always
+        environment:
+            MYSQL_HOST: db
+            MYSQL_USER: MayMeowCloud2017
+            MYSQL_PASSWORD: MayMeowCloud2017
+            MYSQL_DB_NAME: maymeowcloud
+            EXTERNAL_URL: noted-earth-3754.app.maymeow.cloud
+            DEBUG: "true"
+
+    rsync:
+        build: ./MayMeow/rsyncserver
+        depends_on:
+            - platform
+        volumes:
+            - maymeowcloud_storage_buckets:/bucket
+        ports:
+            - "32017:873"
+        restart: always
+        environment:
+            USERNAME: storage
+            PASSWORD: Cloud2017
+            ALLOW: "0.0.0.0/0"
+
+    redis:
+        build: ./MayMeow/redis
+        restart: always
+
+    nginx:
+        build: ./MayMeow/lb
+        restart: always
+        ports:
+            - "8081:80"
+
+volumes:
+    db_data:
+    maymeowcloud_storage_buckets:
+    maymeowcloud_config:
+    maymeowcloud_users_data:

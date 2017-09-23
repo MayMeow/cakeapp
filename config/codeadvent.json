@@ -1,0 +1,27 @@
+{
+  "CodeAdvent": {
+    "ssl" : false,
+    "adminTheme" : "bootstrap"
+  },
+  "CakeAuth": {
+    "newPassUrl": ""
+  },
+  "CakeShrink": {
+    "url": "https://jdmay.me/"
+  },
+  "CakeBootstrap": {
+    "Menu": [
+      {"plugin" : "CakeAuth", "controller" : "Users"},
+      {"plugin" : "CakeStorage", "controller" : "Buckets"},
+      {"plugin" : "CakeNetworking", "controller" : "Domains"},
+      {"plugin" : "MCloudResources", "controller" : "OwnedResources"}
+    ],
+    "adminTopMenu": "mcloud_admin_menu"
+  },
+  "CakeContent": {
+    "allowedTypes" : ["photo", "blog"]
+  },
+  "CakeStorage": {
+    "price": "0.11"
+  }
+}

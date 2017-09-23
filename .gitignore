@@ -1,0 +1,16 @@
+/vendor/*
+/config/app.php
+/config/cakeapp.php
+/tmp/*
+/logs/*
+/.idea/*
+/webroot/data/storage
+/webroot/data/users
+/webroot/user-data
+composer.phar
+/node_modules/*
+/data/git-data/repositories/*
+/data/buckets-data/*
+/data/.ssh/*
+/volumes/
+/plugins/*

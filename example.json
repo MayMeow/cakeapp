@@ -1,0 +1,38 @@
+{
+  "severity": "debug",
+  "jsonPayload": {
+    "id": 16,
+    "name": "ahoj.sk",
+    "domain_key": "54305f9dc7b85cde80210eaeb4b22b0f",
+    "user_id": 2,
+    "created": "2017-02-19T20:48:50+00:00",
+    "modified": "2017-02-19T20:48:50+00:00",
+    "user": {
+      "id": 2,
+      "username": "maya",
+      "password": "$2y$10$vzULTuAOt0R.QPZcuKCMqupQbIPvH41fQk9\/c8CfLL17odF22W4EK",
+      "role": "admin",
+      "verified": true,
+      "created": "2016-12-09T09:32:34+00:00",
+      "modified": "2017-02-13T13:28:02+00:00",
+      "uid": "",
+      "email": "",
+      "password_reset": null,
+      "image": "data\\users\\images\\3012d58b-0730-4e09-bf9d-1fb6e27ede70.jpg"
+    }
+  },
+  "resource": {
+    "controller": "Domains",
+    "action": "View",
+    "plugin": "CakeNetworking",
+    "id": 16
+  },
+  "labels": {
+    "MayMeow.Cloud.Package": "CakeNetworking",
+    "MayMeow.Cloud.Domain": "Domains",
+    "MayMeow.Cloud.Action": "View",
+    "MayMeow.Cloud.Resource": 16
+  },
+  "eventType": "VIEW",
+  "author": "maya"
+}
