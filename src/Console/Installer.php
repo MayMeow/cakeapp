@@ -95,7 +95,7 @@ class Installer
      * @param \Composer\IO\IOInterface $io IO interface to write to console.
      * @return void
      */
-    public static function createCakeAppConfig($idr, $io)
+    public static function createCakeAppConfig($dir, $io)
     {
         $cakeAppConfig = $dir . '/config/cakeapp.php';
         $defaultConfig = $dir . '/config/cakeapp.default.php';
