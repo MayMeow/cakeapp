@@ -15,11 +15,11 @@
 
 namespace App\Controller;
 
+use App\Traits\CakeAppMenuTrait;
 use Cake\Controller\Controller;
 use Cake\Core\Configure;
 use Cake\Event\Event;
 use CakeApp\Component\Core\Helper\RoleHelper;
-use MayMeow\Crud\View\Menu\MenuTrait;
 
 /**
  * Application Controller
@@ -32,7 +32,7 @@ use MayMeow\Crud\View\Menu\MenuTrait;
 class AppController extends Controller
 {
 
-    use MenuTrait;
+    use CakeAppMenuTrait;
 
     /**
      * Initialization hook method.
