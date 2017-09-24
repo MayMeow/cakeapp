@@ -24,6 +24,24 @@ What is the expected correct behavior?
 
 (What you should see instead)
 
+What is your current environment?
+
+(Tell us about environment you running application)
+
+(For Installation with Docker-Compose)
+
+* Operating System:
+* Docker version:
+* CakeApp version:
+
+(For Installation from Source code)
+
+* Operating System:
+* CakeApp version:
+* PHP version:
+* Database Server version:
+* Git version:
+* Redis version (if applicable):
 
 Relevant logs and/or screenshots
 
