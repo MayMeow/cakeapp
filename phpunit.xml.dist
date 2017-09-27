@@ -17,9 +17,9 @@
             <directory>./tests/TestCase</directory>
         </testsuite>
         <!-- Add plugin test suites here. -->
-        <testsuite name="Cake Service">
+        <!--<testsuite name="Cake Service">
             <directory>./plugins/CakeService/tests/TestCase</directory>
-        </testsuite>
+        </testsuite>-->
     </testsuites>
 
     <!-- Setup a listener for fixtures -->
