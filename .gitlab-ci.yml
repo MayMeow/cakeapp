@@ -22,6 +22,12 @@ stages:
 
 # Install all dependencies
 .install_dependencies: &install_dependencies
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerinit ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - ssh-keyscan -H -p 2248 cakehub.sk >> ~/.ssh/known_hosts
     - composer install
     - chmod a+x bin/cake
 
@@ -31,48 +37,12 @@ stages:
     - chmod +x vendor/bin/phpcs
     - vendor/bin/phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests ./config ./plugins
 
-# CodeCanyon application setup
-# Unloads all unnecessary plugins
-.cc_plugins: &cc_plugins
-  - bin/cake plugin unload CakeStorage
-  - bin/cake plugin unload CakeNetworking
-  - bin/cake plugin unload MCloudLogging
-  - bin/cake plugin unload MCloudCompute
-  - bin/cake plugin unload MCloudHome
-  - bin/cake plugin unload CloudToDo
-  # Load Plugins
-  - bin/cake plugin load -r CakeBootstrap
-  - bin/cake plugin load -r CakeFontAwesome
-  - bin/cake plugin load -r MCloudResources
-  - bin/cake plugin load -r CakeAuth
-  - bin/cake plugin load -r CakeFile
-  - bin/cake plugin load CakeHighlight
-  - bin/cake plugin load MayMeow
-  - bin/cake plugin load -r MayCa
-  - cat ./config/bootstrap.php
-  # Update AppController
-  - rm ./src/Controller/AppController.php
-  - cp ./src/Controller/AppController.php.cc.default ./src/Controller/AppController.php
-  # update docker compose
-  - rm docker-compose.yml
-  - mv docker-compose-cc.yml docker-compose.yml
-  # Update install shell for CC
-  - rm ./src/Shell/McloudSetupShell.php
-  - mv ./src/Shell/McloudSetupShell.php.cc.default ./src/Shell/McloudSetupShell.php
-
 # CodeCanyon Application Setup
 # Remove all unnecessary folders
 .clean_folders: &clean_folders
-  - rm -rf ./plugins/CakeStorage
-  - rm -rf ./plugins/CakeNetworking
-  - rm -rf ./plugins/MCloudLogging
-  - rm -rf ./plugins/MCloudCompute
-  - rm -rf ./plugins/MCloudHome
-  - rm -rf ./plugins/CloudToDo
-  - rm -rf ./vendor
+  - rm -rf .git
   - rm -rf ./tmp
   - rm -rf ./logs
-  - rm ./config/app.php
 
 # Test section
 # Lint
@@ -105,11 +75,10 @@ test cake-service:
 # Build section
 
 build image:
-    # image: docker:latest
-    # services:
-    #     - docker:dind
     stage: build
-    script:
+    before_script: *install_dependencies
+    script: *clean_folders
+    after_script:
         - export IMAGE_TAG=$(echo -en $CI_COMMIT_REF_NAME | tr -c '[:alnum:]_.-' '-')
         - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" $CI_REGISTRY
         - docker build --pull -t "$CI_REGISTRY_IMAGE:$IMAGE_TAG" .
@@ -119,10 +88,12 @@ build image:
     #     - docker
          - digitalocean
     when: manual
+    only:
+      - tags
 
 # Deploy Section
 # Deploy for CodeCanyon only when tags are set up
-deploy_to_code_canyon:
+deploy_source_code:
     stage: deploy
     environment:
         name: codecanyon
@@ -131,10 +102,10 @@ deploy_to_code_canyon:
         - composer selfupdate
         - composer install
         - chmod +x bin/cake
-    script: *cc_plugins
-    after_script: *clean_folders
+    script: *clean_folders
     only:
         - tags
+        - master
     tags:
         - home
         - docker

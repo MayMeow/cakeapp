@@ -12,6 +12,8 @@ use Cake\Core\Configure;
 use Cake\Utility\Security;
 use Cake\View\Helper\UrlHelper;
 use Cake\View\View;
+use CakeActivity\Model\CardTemplate;
+use CakeApp\Component\IO\Serializer\ObjectSerializer;
 use CakeApp\Shell\SSH\AuthorizedKeys;
 use MayMeow\Actions\AbstractAction;
 use MayMeow\Actions\ActionInterface;
@@ -124,6 +126,16 @@ $iconFile = str_replace('xmlns', 'class="octicon octicon-'. $icon .'" xmlns', $i
 
 var_dump($iconFile);*/
 
-$secToTime = new TimeFactory();
+/*$secToTime = new TimeFactory();
 
-var_dump($secToTime->secondsToTime(7360)->toString());
+var_dump($secToTime->secondsToTime(7360)->toString());*/
+
+$card = new CardTemplate();
+
+$card->setTitle('Ahoj')->setText('Ahoj');
+$card->setUser()->setId(1)->setUsername('martin');
+$card->setRelatedItem()->setTitle('Item name')->setPlugin('CakeService')->setController('issues')->setAction('view')->setId(57);
+
+$serializer = new ObjectSerializer();
+
+print_r($serializer->serialize($card));

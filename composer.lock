@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b6fc21baaddae0bdc2b13fdb5035c52",
+    "content-hash": "3c159b342e8cb6d857cb170d3b3c715f",
     "packages": [
         {
             "name": "aura/intl",
@@ -133,11 +133,11 @@
         },
         {
             "name": "cakeapp/cake-activity",
-            "version": "v2017.9",
+            "version": "v2017.9.1",
             "source": {
                 "type": "git",
                 "url": "ssh://git@cakehub.sk:2248/cakeapp-sk/cake-activity.git",
-                "reference": "7e3a121971c92c8285cb9a29e7a7d66659c1d704"
+                "reference": "792bba040aa99d9055182663238d5d767b343947"
             },
             "require": {
                 "cakephp/cakephp": "^3.4"
@@ -161,7 +161,7 @@
                 "MIT"
             ],
             "description": "CakeActivity plugin for CakePHP",
-            "time": "2017-09-23T08:58:10+00:00"
+            "time": "2017-09-27T19:04:26+00:00"
         },
         {
             "name": "cakeapp/cake-app",
@@ -220,11 +220,11 @@
         },
         {
             "name": "cakeapp/cake-app-io",
-            "version": "v2017.9",
+            "version": "v2017.9.2",
             "source": {
                 "type": "git",
                 "url": "ssh://git@cakehub.sk:2248/cakeapp-sk/cake-app-io.git",
-                "reference": "0c45781ed2aa419ae2afeaeb1501afcc3d15ca54"
+                "reference": "fd7f1e25e0d85e1a0aa4ce972121774c066eabad"
             },
             "type": "cakephp-plugin",
             "autoload": {
@@ -242,7 +242,7 @@
                 }
             ],
             "description": "Core Functions for CakeApp",
-            "time": "2017-09-23T08:48:50+00:00"
+            "time": "2017-09-27T19:02:42+00:00"
         },
         {
             "name": "cakeapp/cake-app-licensing",
@@ -301,11 +301,11 @@
         },
         {
             "name": "cakeapp/cake-auth",
-            "version": "v2017.9",
+            "version": "v2017.9.1",
             "source": {
                 "type": "git",
                 "url": "ssh://git@cakehub.sk:2248/cakeapp-sk/cake-auth.git",
-                "reference": "8b2de110a26466e28dffbd77b9711b82d5d478ee"
+                "reference": "4fc9a59ab71c030a46296604cbc14d360237997e"
             },
             "require": {
                 "cakephp/cakephp": ">=3.3.2 <4.0.0",
@@ -327,15 +327,15 @@
                 }
             },
             "description": "CakeAuth plugin for CakePHP",
-            "time": "2017-09-23T09:05:24+00:00"
+            "time": "2017-09-27T18:59:07+00:00"
         },
         {
             "name": "cakeapp/cake-bootstrap",
-            "version": "v2017.9.2",
+            "version": "v2017.9.3",
             "source": {
                 "type": "git",
                 "url": "ssh://git@cakehub.sk:2248/cakeapp-sk/cake-bootstrap.git",
-                "reference": "bb200bc7696c722fe37d94eb8598b5bf7d6ed65a"
+                "reference": "25f0de0ebb8eb7b385ec1558f3135d6c00e39670"
             },
             "require": {
                 "cakephp/cakephp": ">=3.3.2 <4.0.0",
@@ -357,7 +357,7 @@
                 }
             },
             "description": "Bootstrap plugin for CakePHP",
-            "time": "2017-09-23T15:24:16+00:00"
+            "time": "2017-09-27T18:57:16+00:00"
         },
         {
             "name": "cakeapp/cake-communication",
@@ -630,11 +630,11 @@
         },
         {
             "name": "cakeapp/cake-service",
-            "version": "v2017.9.1",
+            "version": "v2017.9.2",
             "source": {
                 "type": "git",
                 "url": "ssh://git@cakehub.sk:2248/cakeapp-sk/cake-service.git",
-                "reference": "70925b06b8693614ddf646cb62f92910640a0b9c"
+                "reference": "12f3adedf2c251a296c9ffa3f1cb3571538c17ca"
             },
             "require": {
                 "cakephp/cakephp": "^3.4"
@@ -655,7 +655,7 @@
                 }
             },
             "description": "CakeService plugin for CakePHP",
-            "time": "2017-09-23T15:11:09+00:00"
+            "time": "2017-09-27T18:56:04+00:00"
         },
         {
             "name": "cakeapp/cake-storage",
@@ -775,16 +775,16 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "3.5.2",
+            "version": "3.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "6829ddd2bcc48fc29dc98dccd23b8f746ec4ebec"
+                "reference": "cdf66608ef1f64e26509c41e92cc9bdb558c81fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/6829ddd2bcc48fc29dc98dccd23b8f746ec4ebec",
-                "reference": "6829ddd2bcc48fc29dc98dccd23b8f746ec4ebec",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/cdf66608ef1f64e26509c41e92cc9bdb558c81fd",
+                "reference": "cdf66608ef1f64e26509c41e92cc9bdb558c81fd",
                 "shasum": ""
             },
             "require": {
@@ -857,7 +857,7 @@
                 "rapid-development",
                 "validation"
             ],
-            "time": "2017-09-12T01:49:28+00:00"
+            "time": "2017-09-27T01:53:08+00:00"
         },
         {
             "name": "cakephp/chronos",
