@@ -78,6 +78,9 @@ test cake-service:
 # Build section
 
 build image:
+    image: docker:latest
+    services:
+        - docker:dind
     stage: build
     before_script: *install_dependencies
     script: *clean_folders
@@ -87,9 +90,9 @@ build image:
         - docker build --pull -t "$CI_REGISTRY_IMAGE:$IMAGE_TAG" .
         - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
     tags:
-    #     - home
-    #     - docker
-         - digitalocean
+         - home
+         - docker
+    #     - digitalocean
     when: manual
     only:
       - tags
