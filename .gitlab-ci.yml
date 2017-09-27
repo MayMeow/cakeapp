@@ -9,6 +9,8 @@ variables:
     MYSQL_PORT: 3306
     # Setting for testing database
     MYSQL_DB_TEST_NAME: maylab
+    REDIS_SERVER: redis
+    REDIS_SERVER_PORT: 6379
 
 # Cache vendor directory
 cache:
@@ -63,6 +65,7 @@ php lint:
 test cake-service:
     services:
         - mariadb
+        - redis
     stage: test
     before_script: *install_dependencies
     script:
