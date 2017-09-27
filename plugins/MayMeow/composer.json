@@ -1,0 +1,18 @@
+{
+    "name": "cakeapp/may-meow",
+    "description": "MayMeow helpers",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Charlotta Jung",
+            "email": "jungcharlotta@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MayMeow\\": "src"
+        }
+    }
+}

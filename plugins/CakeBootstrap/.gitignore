@@ -1,0 +1,8 @@
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+/.idea/*
+/webroot/coverage/*
+/.vscode/*
+/webroot/video/*

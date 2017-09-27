@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs">
+    <li role="presentation" class="<?= $this->request->params['controller'] == 'Domains' ? 'active' : '' ?>"><?= $this->Html->link(__('<i class="fa fa-address-card"></i> Domains'), ['controller' => 'Domains', 'action' => 'index'], ['escape' => false]) ?> </li>
+    <li role="presentation" class="<?= $this->request->params['controller'] == 'ContentDeliveryNetworks' ? 'active' : '' ?>"><?= $this->Html->link(__('<i class="fa fa-cloud"></i> Cloud CDN'), ['controller' => 'ContentDeliveryNetworks', 'action' => 'index'], ['escape' => false]) ?> </li>
+    <li role="presentation" class="<?= $this->request->params['controller'] == 'DnsRecordSets' ? 'active' : '' ?>"><?= $this->Html->link(__('<i class="fa fa-map-signs"></i> DNS record sets'), ['controller' => 'DnsRecordSets', 'action' => 'index'], ['escape' => false]) ?> </li>
+</ul>

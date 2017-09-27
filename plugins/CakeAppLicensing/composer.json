@@ -1,0 +1,20 @@
+{
+    "name": "cakeapp/cake-app-licensing",
+    "description": "Core Functions for CakeApp",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Charlotta Jung",
+            "email": "jungcharlotta@gmail.com"
+        }
+    ],
+    "require": {
+        "maymeow/may-encrypt": "^2017.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "CakeApp\\Component\\Licensing\\": "src"
+        }
+    }
+}

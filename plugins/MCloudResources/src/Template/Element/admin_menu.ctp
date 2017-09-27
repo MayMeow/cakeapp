@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs">
+    <li role="presentation" class="<?= $this->request->params['controller'] == 'ResourceGroups' ? 'active' : '' ?>"><?= $this->Html->link(__('<i class="fa fa-users"></i> Groups'), ['controller' => 'ResourceGroups', 'action' => 'index'], ['escape' => false]) ?> </li>
+    <li role="presentation" class="<?= $this->request->params['controller'] == 'ResourceGroups2' ? 'active' : '' ?>"><?= $this->Html->link(__('<i class="fa fa-suitcase"></i> Companies'), ['controller' => 'ResourceGroups', 'action' => 'index'], ['escape' => false]) ?> </li>
+    <li role="presentation" class="<?= $this->request->params['controller'] == 'ResourceGroups3' ? 'active' : '' ?>"><?= $this->Html->link(__('<i class="fa fa-phone"></i> Contacts'), ['controller' => 'ResourceGroups', 'action' => 'index'], ['escape' => false]) ?> </li>
+</ul>

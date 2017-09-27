@@ -1,0 +1,42 @@
+body {
+  font-weight: 300;
+}
+
+p {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  line-height: 1.6em;
+  font-size: 20px;
+}
+
+.splash {
+  height: 35em;
+  padding-top: 9em;
+  margin-bottom: 2em;
+  background-image: url("http://img.kukolos.eu/blog_header_image.jpg");
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
+.navbar-default {
+  position: absolute;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 20px;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  font-weight: 400;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  background-color: transparent;
+}
+
+.btn {
+  font-size: 20px;
+}

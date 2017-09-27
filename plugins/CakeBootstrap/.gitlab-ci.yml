@@ -1,0 +1,48 @@
+image: gitlabcafe/php:7
+
+.before_script_tpl: &before
+  # Install ssh-agent if not already installed, it is required by Docker.
+  # (change apt-get to yum if you use a CentOS-based image)
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+
+  # Run ssh-agent (inside the build environment)
+  - eval $(ssh-agent -s)
+
+  # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent stored
+  # DO NOT COPY THIS KEY TO PUBLIC PLACES
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+
+  # For Docker builds disable host key checking. Be aware that by adding that
+  # you are suspectible to man-in-the-middle attacks.
+  # WARNING: Use this only with the Docker executor, if you use it with shell
+  # you will overwrite your user's SSH config.
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerinit ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+  # add identity of gitlab server to known hosts
+  - ssh-keyscan -H -p 2223 gitlab.cafe >> ~/.ssh/known_hosts
+
+  # Install composer dependencies
+  - composer self-update
+  - composer require cakephp/cakephp-codesniffer:dev-master
+
+stages:
+  - test
+
+test_code_quality:
+  stage: test
+  tags:
+    - gitlabcafe
+  before_script: *before
+  script:
+    - chmod +x vendor/bin/phpcs
+    - vendor/bin/phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests ./config
+  allow_failure: false
+
+test_code:
+  stage: test
+  tags:
+    - gitlabcafe
+  before_script: *before
+  script:
+    - phpunit

@@ -1,0 +1,24 @@
+{
+    "name": "cakeapp/cake-storage",
+    "description": "CakeStorage plugin for CakePHP",
+    "type": "cakephp-plugin",
+    "require": {
+        "php": ">=5.5.9",
+        "cakephp/cakephp": ">=3.3.2 <4.0.0",
+        "blueimp/jquery-file-upload": "~9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "CakeStorage\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CakeStorage\\Test\\": "tests",
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+        }
+    }
+}

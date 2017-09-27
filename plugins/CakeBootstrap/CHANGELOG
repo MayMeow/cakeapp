@@ -1,0 +1,44 @@
+v 1.2.15
+
+* Navigation menu for electron app
+
+v 1.2.8
+
+* Brand new Default layout
+
+v 1.2.7
+
+* Bug fixes
+
+v 1.2.6
+
+* UserMenu element now correct loading email from Auth info
+* Admin template Click on brand name now redirect to base url
+* Admin template - remove unnecessary javascripts
+
+v 1.2.5
+
+* Admin menu now using element instead of cell
+
+v 1.2.4
+
+* Brand new User Menu
+
+v 1.2.3
+
+* Removed search form from navbar
+
+v 1.2.2
+
+* HOTFIX Change default admin menu variable name
+
+v 1.2.1
+
+* CA_DEFAULT_THEME can now be used to set color scheme for admin template
+* Update Bootswattch flatly bootstrap.css
+
+v 1.2
+
+* Brand new admin template and css
+* FIX index bake template will now correct show name of Controller name when you dont have any item created.
+* Change brand name of default template

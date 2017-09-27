@@ -6,7 +6,6 @@ chmod 777 /var/www/html/webroot/user-data
 chmod 777 /cakeapp/.ssh
 chown www-data:www-data /cakeapp/git-data/repositories
 chmod +x /var/www/html/bin/cake
-composer run-script post-install-cmd
 
 if [ ! -f /var/www/html/vendor/autoload.php ]; then
     echo "Autoload file not found! Installing dependencies..."

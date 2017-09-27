@@ -13,4 +13,3 @@ composer.phar
 /data/buckets-data/*
 /data/.ssh/*
 /volumes/
-/plugins/*
