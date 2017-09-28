@@ -36,6 +36,7 @@ stages:
     - prepare
     - build
     - test
+    - post-test
     - deploy
 
 # Install all dependencies
@@ -70,12 +71,13 @@ setup-cakeapp:
 # Lint
 php lint:
     <<: *pull-cache
-    stage: test
+    stage: post-test
     environment:
         name: staging
         url: https://helix.maymeow.tokyo/MayMeowCloudPlatform/maymeow-cloud
     before_script: *install-dependencies
     script: *php-lint
+    allow_failure: true
     only:
         # - /^feature\/.*$/
         - master
@@ -90,7 +92,7 @@ php phpunit:
         MYSQL_PORT: 3306
     stage: test
     services:
-        - postgres
+        - redis
         - mariadb
     stage: test
     before_script: *install-dependencies
