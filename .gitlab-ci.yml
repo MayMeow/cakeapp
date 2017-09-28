@@ -85,10 +85,13 @@ php lint:
 
 php phpunit:
     <<: *pull-cache
+    variables:
+        MYSQL_HOST: mariadb
+        MYSQL_PORT: 3306
     stage: test
     services:
         - postgres
-        - redis
+        - mariadb
     stage: test
     before_script: *install-dependencies
     script:
