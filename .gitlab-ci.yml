@@ -14,44 +14,66 @@ variables:
 
 # Cache vendor directory
 .default-cache: &default-cache
-    cache:
-        key:
-        paths:
+    key: "cake-app-with-php-7"
+    paths:
         - vendor/
 
+# push cache
+.push-cache: &push-cache
+    cache:
+        <<: *default-cache
+        policy: push
+
+# pull cache
+.pull-cache: &pull-cache
+    cache:
+        <<: *default-cache
+        policy: pull
+
 stages:
+    - prepare
     - test
     - build
     - deploy
 
 # Install all dependencies
-.install_dependencies: &install_dependencies
+.install-dependencies: &install-dependencies
+    - composer -V
     - composer install
     - chmod a+x bin/cake
 
 # PHP Lint script using CakePHP coding standards
-.php_lint: &php_lint
+.php-lint: &php-lint
     - composer require cakephp/cakephp-codesniffer:dev-master
     - chmod +x vendor/bin/phpcs
     - vendor/bin/phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests ./config ./plugins
 
 # CodeCanyon Application Setup
 # Remove all unnecessary folders
-.clean_folders: &clean_folders
-  - rm -rf .git
-  - rm -rf ./tmp
-  - rm -rf ./logs
+.clean-folders: &clean-folders
+    - rm -rf .git
+    - rm -rf ./tmp
+    - rm -rf ./logs
+
+# Prepare Section
+setup-cakeapp:
+    <<: *push-cache
+    stage: prepare
+    script: *install-dependencies
+    tags:
+        - home
+        - docker
 
 # Test section
 # Lint
 php lint:
-    <<: *default-cache
+    <<: *pull-cache
     stage: test
     environment:
         name: staging
         url: https://helix.maymeow.tokyo/MayMeowCloudPlatform/maymeow-cloud
-    before_script: *install_dependencies
-    script: *php_lint
+    before_script: *install-dependencies
+    script: *php-lint
     only:
         # - /^feature\/.*$/
         - master
@@ -60,13 +82,13 @@ php lint:
         - docker
 
 php phpunit:
-    <<: *default-cache
+    <<: *pull-cache
     stage: test
     services:
         - mariadb
         - redis
     stage: test
-    before_script: *install_dependencies
+    before_script: *install-dependencies
     script:
         # - bin/cake mcloud_setup
         - phpunit --coverage-text --colors=never
@@ -81,8 +103,8 @@ build image:
     # services:
     #    - docker:dind
     stage: build
-    before_script: *install_dependencies
-    script: *clean_folders
+    before_script: *install-dependencies
+    script: *clean-folders
     after_script:
         - export IMAGE_TAG=$(echo -en $CI_COMMIT_REF_NAME | tr -c '[:alnum:]_.-' '-')
         - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" $CI_REGISTRY
@@ -94,21 +116,18 @@ build image:
         - digitalocean
     when: manual
     only:
-      - tags
+        - tags
 
 # Deploy Section
 # Deploy for CodeCanyon only when tags are set up
-deploy_source_code:
-    <<: *default-cache
+publish artifacts:
+    <<: *pull-cache
     stage: deploy
     environment:
-        name: codecanyon
-        url: https://codecanyon.net
-    before_script:
-        - composer selfupdate
-        - composer install
-        - chmod +x bin/cake
-    script: *clean_folders
+        name: CakeHub
+        url: https://cakehub.sk
+    before_script: *install-dependencies
+    script: *clean-folders
     only:
         - tags
         - master
@@ -120,43 +139,3 @@ deploy_source_code:
         paths:
             - .
         expire_in: 2 days
-
-# Digital Ocean
-# Backup database before deploy to Digital ocean
-backup_db:
-    stage: deploy
-    script:
-        - mkdir _db
-        - docker stop maymeowcloud_platform_1
-        - docker exec maymeowcloud_db_1 sh -c 'exec mysqldump -u"$MYSQL_USER" -p"$MYSQL_ROOT_PASSWORD" "$MYSQL_DATABASE"' > ./_db/maymeowcloud.sql
-    artifacts:
-        paths:
-            - _db
-        expire_in: 7 days
-    only:
-        - develop
-    tags:
-        - digitalocean
-    when: manual
-
-# Deploy for DigitalOcean
-# only for tags
-deploy_to_digitalocean:
-    stage: deploy
-    environment:
-        name: digitalocean
-        url: http://platform.cakeapp.sk
-    before_script:
-        - docker -v
-        - docker-compose version
-    script:
-        - docker-compose down -v
-        # Pull newest Platform Image
-        - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" $CI_REGISTRY
-        - docker pull registry.cakehub.sk/cakesource/platform:develop
-        - docker-compose up -d --build
-    only:
-        - develop
-    tags:
-        - digitalocean
-    when: manual
