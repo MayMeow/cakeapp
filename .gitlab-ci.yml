@@ -70,7 +70,7 @@ test cake-service:
     before_script: *install_dependencies
     script:
         # - bin/cake mcloud_setup
-        - phpunit
+        - phpunit --coverage-text --colors=never
     tags:
         - home
         - docker
