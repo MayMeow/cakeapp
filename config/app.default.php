@@ -298,7 +298,7 @@ return [
          */
         'test' => [
             'className' => 'Cake\Database\Connection',
-            'driver' => 'Cake\Database\Driver\Mysql',
+            'driver' => 'Cake\Database\Driver\Postgres',
             'persistent' => false,
             'host' => env('MYSQL_HOST', '10.11.220.12'),
             'port' => env('MYSQL_PORT', 33306),

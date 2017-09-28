@@ -1,14 +1,16 @@
 image: registry.cakehub.sk/cakehub/cakeapp:cli
 
 variables:
-    MYSQL_ROOT_PASSWORD: MayMeowCloud2017
-    MYSQL_DATABASE: maylab
-    MYSQL_USER: MayMeowCloud2017
-    MYSQL_PASSWORD: MayMeowCloud2017
-    MYSQL_HOST: mariadb
-    MYSQL_PORT: 3306
+    MYSQL_ROOT_PASSWORD: cak3appd4tabase
+    MYSQL_DB_NAME: cakeapp
+    MYSQL_USER: postgres
+    MYSQL_PASSWORD: cak3appd4tabase
+    MYSQL_HOST: postgres
+    MYSQL_PORT: 5432
+    POSTGRES_PASSWORD: cak3appd4tabase
+    POSTGRES_DB: cakeapp
     # Setting for testing database
-    MYSQL_DB_TEST_NAME: maylab
+    MYSQL_DB_TEST_NAME: cakeapp
     REDIS_SERVER: redis
     REDIS_SERVER_PORT: 6379
 
@@ -85,13 +87,26 @@ php phpunit:
     <<: *pull-cache
     stage: test
     services:
-        - mariadb
+        - postgres
         - redis
     stage: test
     before_script: *install-dependencies
     script:
         # - bin/cake mcloud_setup
         - phpunit --coverage-text --colors=never
+    tags:
+        - home
+        - docker
+
+db:postgres-migration:
+    <<: *pull-cache
+    stage: test
+    services:
+        - postgres
+        - redis
+    before_script: *install-dependencies
+    script:
+        - bin/cake mcloud_setup
     tags:
         - home
         - docker
