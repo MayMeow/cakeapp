@@ -16,7 +16,7 @@ class AuthApplicationControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.cake_auth.auth_application'
+        'plugin.cake_auth.auth_applications'
     ];
 
     /**
