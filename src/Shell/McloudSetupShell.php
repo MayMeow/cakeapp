@@ -43,6 +43,7 @@ class McloudSetupShell extends Shell
         $this->dispatchShell('migrations migrate -p CakeTaxonomy');
         $this->dispatchShell('migrations migrate -p CakeLogs');
         $this->dispatchShell('migrations migrate -p CakeConfigure');
+        $this->dispatchShell('migrations migrate -p CakeActivity');
         //$this->out($this->OptionParser->help());
     }
 }

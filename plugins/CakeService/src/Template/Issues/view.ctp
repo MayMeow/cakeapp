@@ -233,6 +233,7 @@
                     test.content = true;
                 }, function (response) {
                 });
+
                 this.fetchData(this.id);
             },
 
