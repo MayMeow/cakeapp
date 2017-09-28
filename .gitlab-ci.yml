@@ -34,8 +34,8 @@ variables:
 
 stages:
     - prepare
-    - test
     - build
+    - test
     - deploy
 
 # Install all dependencies
@@ -132,6 +132,7 @@ build image:
     when: manual
     only:
         - tags
+        - master
 
 # Deploy Section
 # Deploy for CodeCanyon only when tags are set up
