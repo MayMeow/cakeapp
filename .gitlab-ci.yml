@@ -2,8 +2,10 @@ image: registry.cakehub.sk/cakehub/cakeapp:fpm
 
 # Environment variables setting
 .default-variables: &default-variables
+    MYSQL_ROOT_PASSWORD: cak3appd4tabase
     MYSQL_PASSWORD: cak3appd4tabase
     MYSQL_DB_NAME: cakeapp
+
     REDIS_SERVER: redis
     REDIS_SERVER_PORT: 6379
 
