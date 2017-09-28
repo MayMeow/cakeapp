@@ -13,9 +13,11 @@ variables:
     REDIS_SERVER_PORT: 6379
 
 # Cache vendor directory
-cache:
-    paths:
-    - vendor/
+.default-cache: &default-cache
+    cache:
+        key:
+        paths:
+        - vendor/
 
 stages:
     - test
@@ -24,12 +26,6 @@ stages:
 
 # Install all dependencies
 .install_dependencies: &install_dependencies
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-    - eval $(ssh-agent -s)
-    - ssh-add <(echo "$SSH_PRIVATE_KEY")
-    - mkdir -p ~/.ssh
-    - '[[ -f /.dockerinit ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - ssh-keyscan -H -p 2248 cakehub.sk >> ~/.ssh/known_hosts
     - composer install
     - chmod a+x bin/cake
 
@@ -49,6 +45,7 @@ stages:
 # Test section
 # Lint
 php lint:
+    <<: *default-cache
     stage: test
     environment:
         name: staging
@@ -57,12 +54,14 @@ php lint:
     script: *php_lint
     only:
         # - /^feature\/.*$/
-        - develop
+        - master
     tags:
         - home
         - docker
 
-test cake-service:
+php phpunit:
+    <<: *default-cache
+    stage: test
     services:
         - mariadb
         - redis
@@ -100,6 +99,7 @@ build image:
 # Deploy Section
 # Deploy for CodeCanyon only when tags are set up
 deploy_source_code:
+    <<: *default-cache
     stage: deploy
     environment:
         name: codecanyon
