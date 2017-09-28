@@ -121,10 +121,9 @@ build image:
     before_script: *install-dependencies
     script: *clean-folders
     after_script:
-        - export IMAGE_TAG=$(echo -en $CI_COMMIT_REF_NAME | tr -c '[:alnum:]_.-' '-')
-        - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" $CI_REGISTRY
-        - docker build --pull -t "$CI_REGISTRY_IMAGE:$IMAGE_TAG" .
-        - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+        - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+        - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
     tags:
     #    - home
     #    - docker
