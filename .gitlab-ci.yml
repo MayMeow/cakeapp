@@ -100,9 +100,6 @@ php lint:
 php phpunit:
     <<: *pull-cache
     <<: *mariadb-variables
-    variables:
-        MYSQL_HOST: mariadb
-        MYSQL_PORT: 3306
     stage: test
     services:
         - redis
