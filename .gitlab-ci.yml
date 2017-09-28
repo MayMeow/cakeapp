@@ -1,5 +1,6 @@
 image: registry.cakehub.sk/cakehub/cakeapp:fpm
 
+# Environment variables setting
 .default-variables: &default-variables
     MYSQL_ROOT_PASSWORD: cak3appd4tabase
     MYSQL_PASSWORD: cak3appd4tabase
@@ -7,9 +8,10 @@ image: registry.cakehub.sk/cakehub/cakeapp:fpm
     REDIS_SERVER: redis
     REDIS_SERVER_PORT: 6379
 
-# Environment variables setting
+# For Postgres DB
 .postgres-variables: &postgres-variables
     variables:
+        <<: *default-variables
         MYSQL_DB_NAME: cakeapp
         MYSQL_USER: postgres
         MYSQL_HOST: postgres
@@ -17,8 +19,10 @@ image: registry.cakehub.sk/cakehub/cakeapp:fpm
         POSTGRES_PASSWORD: cak3appd4tabase
         POSTGRES_DB: cakeapp
 
+For MariaDB
 .mariadb-variables: &mariadb-variables
     variables:
+        <<: *default-variables
         MYSQL_DB_TEST_NAME: cakeapp
         MYSQL_USER: cakeapp
         MYSQL_HOST: mariadb
