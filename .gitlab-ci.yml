@@ -19,10 +19,10 @@ image: registry.cakehub.sk/cakehub/cakeapp:fpm
 .mariadb-variables: &mariadb-variables
     variables:
         <<: *default-variables
-        MYSQL_USER: root
+        MYSQL_USER: cakeapptest
         MYSQL_HOST: mariadb
         MYSQL_PORT: 3306
-        MYSQL_DB_TEST_NAME: cakeapp
+        MYSQL_DB_TEST_NAME: cakeapptest
 
 
 # Cache vendor directory
