@@ -25,7 +25,6 @@
     <!-- Custom styles for this template -->
     <!-- <link href="sticky-footer-navbar.css" rel="stylesheet">-->
     <?php echo $this->Html->css('CakeBootstrap.app'); ?>
-    <?php echo $this->Html->css('CakeOcticons.octicons.min'); ?>
 
     <!-- Cake Highlight -->
     <?php echo $this->Html->css('CakeHighlight.atom-one-dark'); ?>
