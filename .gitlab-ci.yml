@@ -19,7 +19,7 @@ image: registry.cakehub.sk/cakehub/cakeapp:fpm
         POSTGRES_PASSWORD: cak3appd4tabase
         POSTGRES_DB: cakeapp
 
-For MariaDB
+# For MariaDB
 .mariadb-variables: &mariadb-variables
     variables:
         <<: *default-variables
