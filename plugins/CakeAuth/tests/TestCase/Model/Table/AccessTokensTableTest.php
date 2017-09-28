@@ -27,8 +27,7 @@ class AccessTokensTableTest extends TestCase
         'plugin.cake_auth.access_tokens',
         'plugin.cake_auth.users',
         'plugin.cake_auth.profiles',
-        'plugin.cake_auth.auth_applications',
-        'plugin.cake_auth.clients'
+        'plugin.cake_auth.auth_applications'
     ];
 
     /**
