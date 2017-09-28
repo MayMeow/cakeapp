@@ -1,5 +1,6 @@
 image: registry.cakehub.sk/cakehub/cakeapp:fpm
 
+# Environment variables setting
 .default-variables: &default-variables
     MYSQL_ROOT_PASSWORD: cak3appd4tabase
     MYSQL_PASSWORD: cak3appd4tabase
@@ -22,6 +23,7 @@ image: registry.cakehub.sk/cakehub/cakeapp:fpm
         MYSQL_USER: cakeapptest
         MYSQL_HOST: mariadb
         MYSQL_PORT: 3306
+        MYSQL_DB_NAME: cakeapptest
         MYSQL_DB_TEST_NAME: cakeapptest
 
 
