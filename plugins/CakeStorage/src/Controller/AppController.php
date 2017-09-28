@@ -3,8 +3,8 @@
 namespace CakeStorage\Controller;
 
 use App\Controller\AppController as BaseController;
+use App\Factories\MenuFactory;
 use Cake\Event\Event;
-use MayMeow\Crud\View\Menu\MenuItem;
 
 class AppController extends BaseController
 {
@@ -15,9 +15,6 @@ class AppController extends BaseController
 
     protected function _adminMenu()
     {
-        return [
-            new MenuItem('<i class="fab fa-git"></i> Repositories', ['action' => 'index', 'controller' => 'GitRepositories'], ['escape' => false, 'class' => 'nav-link']),
-            new MenuItem('<i class="fab fa-bitbucket"></i> Buckets', ['action' => 'index', 'controller' => 'Buckets'], ['escape' => false, 'class' => 'nav-link']),
-        ];
+        return MenuFactory::storageMenu();
     }
 }

@@ -2,6 +2,13 @@ v 17.10 (unreleased)
 
 * Probably can be added simple CMS system for managing pages
 
+v 2017.9.3
+
+* NEW Navigation bar color
+* UPDATE Vote up and down in issues controller
+* UPDATE activity stream
+* FIX Close issue
+
 v 2017.9.2
 
 * NEW Projects - will contain Repositories and issues
