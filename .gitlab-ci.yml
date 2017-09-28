@@ -21,7 +21,7 @@ image: registry.cakehub.sk/cakehub/cakeapp:fpm
     variables:
         <<: *default-variables
         MYSQL_USER: cak3appd4tabase
-        MYSQL_HOST: mariadb
+        MYSQL_HOST: mariadbs
         MYSQL_PORT: 3306
         MYSQL_DB_TEST_NAME: cakeapp
 
