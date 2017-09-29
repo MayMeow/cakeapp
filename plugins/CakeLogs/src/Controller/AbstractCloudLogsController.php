@@ -21,18 +21,6 @@ abstract class AbstractCloudLogsController extends AppController
     }
 
     /**
-     * Method _adminMenu
-     *
-     * @return array
-     */
-    protected function _adminMenu()
-    {
-        return [
-            new MenuItem('<i class="fa fa-dashboard"></i> Logs', ['action' => 'index', 'controller' => 'CloudLogs'], ['escape' => false]),
-        ];
-    }
-
-    /**
      * Index method
      *
      * @return \Cake\Network\Response|null
