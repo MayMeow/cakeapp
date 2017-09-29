@@ -107,6 +107,7 @@ abstract class AbstractIssuesController extends AppController
             $issue = $this->Issues->patchEntity($issue, $this->request->getData());
             $issue->finished = 0;
             $issue->uid = Text::uuid();
+            $issue->user_id = $this->Auth->user('id');
             if ($this->Issues->save($issue)) {
                 $this->Flash->success(__('The issue has been saved.'));
 

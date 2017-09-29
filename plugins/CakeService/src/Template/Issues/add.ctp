@@ -59,7 +59,6 @@ Cms
                     echo $this->Form->input('description');
                     echo $this->Form->input('due_date', ['empty' => true]);
                     echo $this->Form->input('estimate');
-                    echo $this->Form->input('user_id', ['options' => $users]);
                     $labelsLink = $this->Html->link('Create them here', ['plugin' => 'CakeTaxonomy', 'controller' => 'Labels', 'action' => 'add']);
                     echo $this->Form->input('label_string');
                     //echo $this->Form->input('labels._ids', ['type' => 'select', 'multiple' => true, 'options' => $labels, 'help' => 'If you dont have any labels ' . $labelsLink]);
