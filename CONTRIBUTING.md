@@ -26,6 +26,8 @@
     * :dolphin: `:dolphin:` when add new migrations
     * :shirt: `:shirt:` when removing linter warnings
     * :watermelon: `:watermelon:` when you add or edit translations.
+    * :gem: `:gem:` when you creating new release
+    * :bookmark: `:bookmark:` when creating new tag
 
 # Environments and branches
 
