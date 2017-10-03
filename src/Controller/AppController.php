@@ -15,6 +15,7 @@
 
 namespace App\Controller;
 
+use App\Factories\MenuFactory;
 use App\Traits\CakeAppMenuTrait;
 use Cake\Controller\Controller;
 use Cake\Core\Configure;
@@ -123,8 +124,16 @@ class AppController extends Controller
 
         /**
          * Crud Sidebar navigation
+         * Only for admin prefix otherwise don't generate it
          */
-        $this->set('crud_side_nav', $this->_side_nav_crud_menu());
+        if (in_array($this->request->getParam('prefix'), ['admin'])) {
+            $this->set('crud_side_nav', $this->_admin_side_nav_crud_menu());
+        } else {
+            /**
+             * Crud Sidebar navigation
+             */
+            $this->set('crud_side_nav', MenuFactory::userSideMenu());
+        }
     }
 
     /**

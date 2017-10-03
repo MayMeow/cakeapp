@@ -106,7 +106,7 @@
         <div class="sidenav-header border-bottom-gray" style="height: 40px">
             <h1><?= $this->fetch('page-title') ?></h1>
         </div>
-        <?= $this->element('MayMeow.Crud/side_nav', ['items' => $crud_side_nav, 'actions' => $crud_admin_menu]) ?>
+        <?= $this->element('MayMeow.Crud/side_nav', ['items' => $crud_side_nav]) ?>
     </div>
 
     <div class="content-wraper" style="padding-left: 220px;">
