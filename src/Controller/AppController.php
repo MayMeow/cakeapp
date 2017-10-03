@@ -127,7 +127,7 @@ class AppController extends Controller
          * Only for admin prefix otherwise don't generate it
          */
         if (in_array($this->request->getParam('prefix'), ['admin'])) {
-            $this->set('crud_side_nav', $this->_admin_side_nav_crud_menu());
+            $this->set('crud_side_nav', MenuFactory::adminSideMenu());
         } else {
             /**
              * Crud Sidebar navigation

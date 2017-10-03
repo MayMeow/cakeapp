@@ -79,7 +79,10 @@
                         'prefix' => false, 'plugin' => 'CakeStorage',
                         'controller' => 'GitRepositories', 'action' => 'index'
                     ]) ?>">Explore</a></li>
-                <li><a href="#">Gist</a></li>
+                <li><a href="<?= $this->Url->build([
+                        'prefix' => 'admin', 'plugin' => 'CakeAuth',
+                        'controller' => 'users', 'action' => 'index'
+                    ]) ?>"><i class="fa fa-cog"></i></a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
