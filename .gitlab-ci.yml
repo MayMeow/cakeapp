@@ -151,24 +151,37 @@ db:postgres-migrations:
 
 # Build section
 # -----------------------------------
-
-build image:
+docker:build-master:
     image: docker:latest
-    environment:
-        name: Production
     services:
        - docker:dind
     stage: build
-    before_script: *install-dependencies
+    before_script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     script: *clean-folders
     after_script:
-        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-        - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
-        - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+        - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+        - docker push "$CI_REGISTRY_IMAGE"
     tags:
        - home
        - docker
-    when: manual
+    only:
+        - master
+
+docker:build-tags:
+    image: docker:latest
+    services:
+       - docker:dind
+    stage: build
+    before_script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    script: *clean-folders
+    after_script:
+        - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+        - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    tags:
+       - home
+       - docker
     only:
         - tags
 
