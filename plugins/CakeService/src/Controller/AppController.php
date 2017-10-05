@@ -10,6 +10,6 @@ class AppController extends BaseController
 {
     protected function _adminMenu()
     {
-        return MenuFactory::serviceDeskMenu();
+        return MenuFactory::userSideMenu();
     }
 }

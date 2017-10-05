@@ -16,6 +16,8 @@ class MenuItem
 
     protected $options = [];
 
+    protected $activeIf = [];
+
     function __construct($title, $url = null, $options = [])
     {
         $this->title = $title;

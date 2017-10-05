@@ -17,6 +17,8 @@ use CakeApp\Component\IO\Serializer\ObjectSerializer;
 use CakeApp\Shell\SSH\AuthorizedKeys;
 use MayMeow\Actions\AbstractAction;
 use MayMeow\Actions\ActionInterface;
+use MayMeow\Crud\View\Menu\MenuDropdown;
+use MayMeow\Crud\View\Menu\MenuItem;
 use MayMeow\Db\MayDb;
 use MayMeow\Exceptions\EmptyPasswordException;
 use MayMeow\Generator\ProjectNameGenerator;
@@ -130,7 +132,7 @@ var_dump($iconFile);*/
 
 var_dump($secToTime->secondsToTime(7360)->toString());*/
 
-$card = new CardTemplate();
+/*$card = new CardTemplate();
 
 $card->setTitle('Ahoj')->setText('Ahoj');
 $card->setUser()->setId(1)->setUsername('martin');
@@ -138,4 +140,21 @@ $card->setRelatedItem()->setTitle('Item name')->setPlugin('CakeService')->setCon
 
 $serializer = new ObjectSerializer();
 
-print_r($serializer->serialize($card));
+print_r($serializer->serialize($card));*/
+
+$menu = new MenuDropdown('<i class="far fa-database"></i> Overview', ['prefix' => 'admin', 'plugin' => 'CakeAuth', 'controller' => 'Users', 'action' => 'index'], [], [
+    new MenuItem('<i class="fa fa-user"></i> Users', ['action' => 'index', 'plugin' => 'CakeAuth', 'controller' => 'Users'], ['escape' => false]),
+    new MenuItem('<i class="fa fa-cube"></i> Auth Applications', ['action' => 'index', 'plugin' => 'CakeAuth', 'controller' => 'AuthApplications'], ['escape' => false]),
+    new MenuItem('<i class="fa fa-key"></i> SSH Keys', ['action' => 'index', 'plugin' => 'CakeAuth', 'controller' => 'SshKeys'], ['escape' => false]),
+    new MenuItem('<i class="fab fa-git"></i> Repositories', ['action' => 'index', 'plugin' => 'CakeStorage', 'controller' => 'GitRepositories'], ['escape' => false, 'class' => 'nav-link']),
+    new MenuItem('<i class="fab fa-bitbucket"></i> Buckets', ['action' => 'index', 'plugin' => 'CakeStorage', 'controller' => 'Buckets'], ['escape' => false, 'class' => 'nav-link']),
+    new MenuItem('<i class="fa fa-users"></i> Groups', ['action' => 'index', 'plugin' => 'MCloudResources', 'controller' => 'ResourceGroups'], ['escape' => false, 'class' => 'nav-link']),
+    new MenuItem('<i class="fa fa-suitcase"></i> Companies', ['action' => 'index', 'plugin' => 'MCloudResources', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
+    new MenuItem('<i class="fa fa-phone"></i> Contacts', ['action' => 'index', 'plugin' => 'MCloudResources', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
+    new MenuItem('<i class="fa fa-exclamation"></i> Issues', ['controller' => 'Issues', 'plugin' => 'CakeService', 'action' => 'index'], ['escape' => false]),
+    new MenuItem('<i class="fa fa-map-signs"></i> Milestones', ['controller' => 'Milestones', 'plugin' => 'CakeService', 'action' => 'index'], ['escape' => false]),
+    new MenuItem('<i class="fa fa-dashboard"></i> Logs', ['action' => 'index', 'plugin' => 'CakeLogs', 'controller' => 'CloudLogs'], ['escape' => false]),
+    new MenuItem('<i class="fa fa-clone"></i> Cards', ['plugin' => 'CakeActivity', 'controller' => 'Cards', 'action' => 'index'], ['escape' => false])
+]);
+
+var_dump($menu->getPlugins());
