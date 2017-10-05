@@ -173,6 +173,8 @@ docker:build-tags:
     services:
        - docker:dind
     stage: build
+    environment:
+        name: production
     before_script:
         - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     script: *clean-folders
@@ -193,7 +195,7 @@ publish artifacts:
     <<: *pull-cache
     stage: deploy
     environment:
-        name: Production
+        name: production
     before_script: *install-dependencies
     script: *clean-folders
     only:
