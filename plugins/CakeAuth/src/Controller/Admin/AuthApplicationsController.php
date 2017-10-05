@@ -1,8 +1,7 @@
 <?php
 namespace CakeAuth\Controller\Admin;
 
-use CakeAuth\Controller\AppController;
-use CakeConfigure\Controller\AbstractApplicationSettingsController;
+use CakeAuth\Controller\AbstractAuthApplicationsController;
 
 /**
  * AuthApplications Controller
@@ -10,7 +9,7 @@ use CakeConfigure\Controller\AbstractApplicationSettingsController;
  * @property \CakeAuth\Model\Table\AuthApplicationsTable $AuthApplications
  *
  */
-class AuthApplicationsController extends AbstractApplicationSettingsController
+class AuthApplicationsController extends AbstractAuthApplicationsController
 {
 
 }
