@@ -73,6 +73,7 @@ stages:
     - rm -rf ./logs
 
 # Prepare Section
+# -----------------------------------
 setup-cakeapp:
     <<: *push-cache
     stage: prepare
@@ -81,7 +82,9 @@ setup-cakeapp:
         - home
         - docker
 
-# Test section
+# Post-Test section
+# -----------------------------------
+
 # Lint
 php lint:
     <<: *pull-cache
@@ -92,14 +95,15 @@ php lint:
     before_script: *install-dependencies
     script: *php-lint
     allow_failure: true
-    only:
-        # - /^feature\/.*$/
-        - master
     tags:
         - home
         - docker
 
-php phpunit:
+# Test section
+# -----------------------------------
+
+# PHP Unit test
+php:mariadb-phpunit:
     <<: *pull-cache
     <<: *mariadb-variables
     stage: test
@@ -114,12 +118,8 @@ php phpunit:
     tags:
         - home
         - docker
-    artifacts:
-        paths:
-            - ./logs
-        expire_in: 1day
 
-db:postgres-migration:
+db:postgres-setup-script:
     <<: *pull-cache
     <<: *postgres-variables
     stage: test
@@ -128,51 +128,83 @@ db:postgres-migration:
         - redis
     before_script: *install-dependencies
     script:
+        - bin/cake plugin loaded
         - bin/cake mcloud_setup
     tags:
         - home
         - docker
 
-# Build section
-
-build image:
-    # image: docker:latest
-    # services:
-    #    - docker:dind
-    stage: build
+db:postgres-migrations:
+    <<: *pull-cache
+    <<: *postgres-variables
+    stage: test
+    services:
+        - postgres
+        - redis
     before_script: *install-dependencies
+    script:
+        - bin/cake migrations migrate -p CakeAuth
+        - bin/cake migrations rollback -p CakeAuth
+    tags:
+        - home
+        - docker
+
+# Build section
+# -----------------------------------
+docker:build-master:
+    image: docker:latest
+    services:
+       - docker:dind
+    stage: build
+    before_script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     script: *clean-folders
     after_script:
-        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-        - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
-        - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+        - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+        - docker push "$CI_REGISTRY_IMAGE"
     tags:
-    #    - home
-    #    - docker
-        - digitalocean
-    when: manual
+       - home
+       - docker
     only:
-        - tags
         - master
 
+docker:build-tags:
+    image: docker:latest
+    services:
+       - docker:dind
+    stage: build
+    environment:
+        name: production
+    before_script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    script: *clean-folders
+    after_script:
+        - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+        - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    tags:
+       - home
+       - docker
+    only:
+        - tags
+
 # Deploy Section
-# Deploy for CodeCanyon only when tags are set up
+# -----------------------------------
+
+# Deploy for Manual setup from source code only when tags are set up
 publish artifacts:
     <<: *pull-cache
     stage: deploy
     environment:
-        name: CakeHub
-        url: https://cakehub.sk
+        name: production
     before_script: *install-dependencies
     script: *clean-folders
     only:
         - tags
-        - master
     tags:
         - home
         - docker
     artifacts:
-        # name: "mcloud-ca-${CI_COMMIT_TAG}-cc"
+        name: "cakeapp-ce-${CI_COMMIT_TAG}"
         paths:
             - .
-        expire_in: 2 days
+        expire_in: 7 days

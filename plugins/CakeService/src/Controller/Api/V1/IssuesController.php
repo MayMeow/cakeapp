@@ -30,7 +30,7 @@ class IssuesController extends AbstractIssuesController
      * @var array
      * Need user to be verified and has set role to User Actions
      */
-    protected $userActions = ['upVote', 'downVote', 'close', 'backlog'];
+    protected $userActions = ['upVote', 'downVote', 'close', 'backlog', 'addComment', 'view', 'addComment'];
 
     /**
      * @var array

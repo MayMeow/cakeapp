@@ -14,7 +14,7 @@
 * Consider starting the commit message with an applicable emoji:
     * :art: `:art:` when improving the format/structure of the code
     * :cake: `:cake:` when edit templates or/and css styles
-    * :racehorse: `:racehorse:` when improving performance
+    * :rocket: `:rocket:` when improving performance
     * :memo: `:memo:` when writing docs
     * :bug: `:bug:` when fixing a bug
     * :fire: `:fire:` when removing code or files
@@ -26,6 +26,9 @@
     * :dolphin: `:dolphin:` when add new migrations
     * :shirt: `:shirt:` when removing linter warnings
     * :watermelon: `:watermelon:` when you add or edit translations.
+    * :gem: `:gem:` when you creating new release
+    * :bookmark: `:bookmark:` when creating new tag
+    * :ambulance: `:ambulance:` when you adding critical hotfix
 
 # Environments and branches
 

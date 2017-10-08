@@ -79,7 +79,10 @@
                         'prefix' => false, 'plugin' => 'CakeStorage',
                         'controller' => 'GitRepositories', 'action' => 'index'
                     ]) ?>">Explore</a></li>
-                <li><a href="#">Gist</a></li>
+                <li><a href="<?= $this->Url->build([
+                        'prefix' => 'admin', 'plugin' => 'CakeAuth',
+                        'controller' => 'users', 'action' => 'index'
+                    ]) ?>"><i class="fa fa-cog"></i></a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -106,7 +109,7 @@
         <div class="sidenav-header border-bottom-gray" style="height: 40px">
             <h1><?= $this->fetch('page-title') ?></h1>
         </div>
-        <?= $this->element('MayMeow.Crud/side_nav', ['items' => $crud_side_nav, 'actions' => $crud_admin_menu]) ?>
+        <?= $this->element('MayMeow.Crud/side_nav', ['items' => $crud_side_nav]) ?>
     </div>
 
     <div class="content-wraper" style="padding-left: 220px;">

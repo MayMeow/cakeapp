@@ -8,17 +8,42 @@
 
 namespace MayMeow\Crud\View\Menu;
 
-
-class MenuDropdown
+/**
+ * Class MenuDropdown
+ * Menu dropdown extending menu item but it can have submenu items
+ * @package MayMeow\Crud\View\Menu
+ */
+class MenuDropdown extends MenuItem
 {
     protected $title;
 
     protected $entries = [];
 
-    function __construct($title, $entries = [])
+    protected $plugins = [];
+
+   function __construct($title, $url = null, array $options = [], array $entries = [])
+   {
+       parent::__construct($title, $url, $options);
+
+       $this->entries = $entries;
+
+       /**
+        * Create array of plugins
+        */
+       foreach ($this->entries as $entry) {
+           if ($entry instanceof MenuItem) {
+               $this->plugins[] = $entry->getUrl()['plugin'];
+           }
+       }
+   }
+
+    /**
+     * @param $plugin
+     * @return bool
+     */
+    public function hasActivePlugin($plugin)
     {
-        $this->title = $title;
-        $this->entries = $entries;
+        return in_array($plugin, $this->plugins);
     }
 
     /**
@@ -35,5 +60,13 @@ class MenuDropdown
     public function getEntries()
     {
         return $this->entries;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPlugins()
+    {
+        return $this->plugins;
     }
 }
