@@ -37,10 +37,10 @@ class MenuFactory
             /**
              * MCLoudResources
              */
-            new MenuDropdown('<i class="far fa-cube"></i> Resources', ['prefix' => false, 'plugin' => 'MCloudResources', 'controller' => 'ResourceGroups', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fa fa-users"></i> Groups', ['plugin' => 'MCloudResources', 'action' => 'index', 'controller' => 'ResourceGroups'], ['escape' => false, 'class' => 'nav-link']),
-                new MenuItem('<i class="fa fa-suitcase"></i> Companies', ['plugin' => 'MCloudResources', 'action' => 'index', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
-                new MenuItem('<i class="fa fa-phone"></i> Contacts', ['plugin' => 'MCloudResources', 'action' => 'index', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
+            new MenuDropdown('<i class="far fa-cube"></i> Resources', ['prefix' => false, 'plugin' => 'CakeResource', 'controller' => 'ResourceGroups', 'action' => 'index'], ['escape' => false], [
+                new MenuItem('<i class="fa fa-users"></i> Groups', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'ResourceGroups'], ['escape' => false, 'class' => 'nav-link']),
+                new MenuItem('<i class="fa fa-suitcase"></i> Companies', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
+                new MenuItem('<i class="fa fa-phone"></i> Contacts', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
             ]),
             /**
              * CakeStorage

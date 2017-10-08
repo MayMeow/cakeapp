@@ -4,9 +4,9 @@ namespace App\Shell;
 use Cake\Console\Shell;
 
 /**
- * McloudSetup shell command.
+ * CakeAppMigrations shell command.
  */
-class McloudSetupShell extends Shell
+class CakeAppMigrationsShell extends Shell
 {
 
     /**
@@ -30,6 +30,11 @@ class McloudSetupShell extends Shell
      */
     public function main()
     {
+        $this->out($this->OptionParser->help());
+    }
+
+    public function migrate()
+    {
         // Run migrations if need change project name here
         $this->dispatchShell('migrations migrate');
 
@@ -37,7 +42,7 @@ class McloudSetupShell extends Shell
         $this->dispatchShell('migrations migrate -p CakeAuth');
         $this->dispatchShell('migrations migrate -p CakeStorage');
         $this->dispatchShell('migrations migrate -p CakeNetworking');
-        $this->dispatchShell('migrations migrate -p MCloudResources');
+        $this->dispatchShell('migrations migrate -p CakeResource');
         $this->dispatchShell('migrations migrate -p MCloudHome');
         $this->dispatchShell('migrations migrate -p MCloudCompute');
         $this->dispatchShell('migrations migrate -p CloudToDo');
@@ -48,6 +53,29 @@ class McloudSetupShell extends Shell
         $this->dispatchShell('migrations migrate -p CakeLogs');
         $this->dispatchShell('migrations migrate -p CakeConfigure');
         $this->dispatchShell('migrations migrate -p CakeActivity');
+        //$this->out($this->OptionParser->help());
+    }
+
+    public function status()
+    {
+        // Run migrations if need change project name here
+        $this->dispatchShell('migrations status');
+
+        // Runs other plugins migrations
+        $this->dispatchShell('migrations status -p CakeAuth');
+        $this->dispatchShell('migrations status -p CakeStorage');
+        $this->dispatchShell('migrations status -p CakeNetworking');
+        $this->dispatchShell('migrations status -p CakeResource');
+        $this->dispatchShell('migrations status -p MCloudHome');
+        $this->dispatchShell('migrations status -p MCloudCompute');
+        $this->dispatchShell('migrations status -p CloudToDo');
+        $this->dispatchShell('migrations status -p MayCa');
+        $this->dispatchShell('migrations status -p CakeService');
+        $this->dispatchShell('migrations status -p CakeCommunication');
+        $this->dispatchShell('migrations status -p CakeTaxonomy');
+        $this->dispatchShell('migrations status -p CakeLogs');
+        $this->dispatchShell('migrations status -p CakeConfigure');
+        $this->dispatchShell('migrations status -p CakeActivity');
         //$this->out($this->OptionParser->help());
     }
 }

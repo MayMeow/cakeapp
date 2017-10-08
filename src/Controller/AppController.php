@@ -60,8 +60,8 @@ class AppController extends Controller
                 'CakeAuth.Token'
             ],*/
             'loginRedirect' => [
-                'plugin' => 'MCloudResources',
-                'controller' => 'OwnedResources',
+                'plugin' => 'CakeResource',
+                'controller' => 'Projects',
                 'action' => 'dashboard'
             ],
             'logoutRedirect' => [
