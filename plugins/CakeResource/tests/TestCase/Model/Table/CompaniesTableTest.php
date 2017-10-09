@@ -25,7 +25,7 @@ class CompaniesTableTest extends TestCase
      */
     public $fixtures = [
         'plugin.cake_resource.companies',
-        'plugin.cake_auth.contacts'
+        'plugin.cake_resource.contacts'
     ];
 
     /**
