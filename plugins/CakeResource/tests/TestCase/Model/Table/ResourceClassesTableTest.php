@@ -35,7 +35,7 @@ class ResourceClassesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('ResourceClasses') ? [] : ['className' => 'MCloudResources\Model\Table\ResourceClassesTable'];
+        $config = TableRegistry::exists('ResourceClassesTable') ? [] : ['className' => ResourceClassesTable::class];
         $this->ResourceClasses = TableRegistry::get('ResourceClasses', $config);
     }
 

@@ -6,7 +6,7 @@ use CakeResource\Controller\AppController;
 /**
  * ResourceClasses Controller
  *
- * @property \MCloudResources\Model\Table\ResourceClassesTable $ResourceClasses
+ * @property \CakeResource\Model\Table\ResourceClassesTable $ResourceClasses
  */
 class ResourceClassesController extends AppController
 {
