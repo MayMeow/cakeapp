@@ -1,5 +1,5 @@
 <?php
-namespace MCloudResources\Test\Fixture;
+namespace CakeResource\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
 
