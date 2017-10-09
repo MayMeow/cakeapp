@@ -1,12 +1,12 @@
 <?php
-namespace MCloudResources\Test\TestCase\Model\Table;
+namespace CakeResource\Test\TestCase\Model\Table;
 
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use MCloudResources\Model\Table\OwnedResourcesTable;
+use CakeResource\Model\Table\OwnedResourcesTable;
 
 /**
- * MCloudResources\Model\Table\OwnedResourcesTable Test Case
+ * CakeResource\Model\Table\OwnedResourcesTable Test Case
  */
 class OwnedResourcesTableTest extends TestCase
 {
@@ -14,7 +14,7 @@ class OwnedResourcesTableTest extends TestCase
     /**
      * Test subject
      *
-     * @var \MCloudResources\Model\Table\OwnedResourcesTable
+     * @var \CakeResource\Model\Table\OwnedResourcesTable
      */
     public $OwnedResources;
 
@@ -24,10 +24,10 @@ class OwnedResourcesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.m_cloud_resources.owned_resources',
-        'plugin.m_cloud_resources.resource_groups',
-        'plugin.m_cloud_resources.users',
-        'plugin.m_cloud_resources.resource_classes'
+        //'plugin.cake_resource.owned_resources',
+        'plugin.cake_resource.projects',
+        'plugin.cake_auth.users',
+        'plugin.cake_resource.resource_classes'
     ];
 
     /**

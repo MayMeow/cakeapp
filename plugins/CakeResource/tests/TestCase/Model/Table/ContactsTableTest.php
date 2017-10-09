@@ -1,12 +1,12 @@
 <?php
-namespace MCloudResources\Test\TestCase\Model\Table;
+namespace CakeResource\Test\TestCase\Model\Table;
 
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use MCloudResources\Model\Table\ContactsTable;
+use CakeResource\Model\Table\ContactsTable;
 
 /**
- * MCloudResources\Model\Table\ContactsTable Test Case
+ * CakeResource\Model\Table\ContactsTable Test Case
  */
 class ContactsTableTest extends TestCase
 {
@@ -14,7 +14,7 @@ class ContactsTableTest extends TestCase
     /**
      * Test subject
      *
-     * @var \MCloudResources\Model\Table\ContactsTable
+     * @var \CakeResource\Model\Table\ContactsTable
      */
     public $Contacts;
 
@@ -24,8 +24,8 @@ class ContactsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.m_cloud_resources.contacts',
-        'plugin.m_cloud_resources.companies'
+        'plugin.cake_resource.contacts',
+        'plugin.cake_resource.companies'
     ];
 
     /**

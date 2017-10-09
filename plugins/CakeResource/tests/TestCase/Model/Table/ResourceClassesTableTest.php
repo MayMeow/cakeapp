@@ -1,9 +1,9 @@
 <?php
-namespace MCloudResources\Test\TestCase\Model\Table;
+namespace CakeResource\Test\TestCase\Model\Table;
 
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use MCloudResources\Model\Table\ResourceClassesTable;
+use CakeResource\Model\Table\ResourceClassesTable;
 
 /**
  * MCloudResources\Model\Table\ResourceClassesTable Test Case
@@ -14,7 +14,7 @@ class ResourceClassesTableTest extends TestCase
     /**
      * Test subject
      *
-     * @var \MCloudResources\Model\Table\ResourceClassesTable
+     * @var \CakeResource\Model\Table\ResourceClassesTable
      */
     public $ResourceClasses;
 
@@ -24,7 +24,7 @@ class ResourceClassesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.m_cloud_resources.resource_classes'
+        'plugin.cake_resource.resource_classes'
     ];
 
     /**

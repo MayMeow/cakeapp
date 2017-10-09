@@ -1,22 +1,22 @@
 <?php
-namespace MCloudResources\Test\TestCase\Model\Table;
+namespace CakeResource\Test\TestCase\Model\Table;
 
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use MCloudResources\Model\Table\ResourceGroupsTable;
+use CakeResource\Model\Table\ProjectsTable;
 
 /**
- * MCloudResources\Model\Table\ResourceGroupsTable Test Case
+ * CakeResource\Model\Table\ProjectsTable Test Case
  */
-class ResourceGroupsTableTest extends TestCase
+class ProjectsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \MCloudResources\Model\Table\ResourceGroupsTable
+     * @var \CakeResource\Model\Table\ProjectsTable
      */
-    public $ResourceGroups;
+    public $Projects;
 
     /**
      * Fixtures
@@ -24,8 +24,8 @@ class ResourceGroupsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.m_cloud_resources.resource_groups',
-        'plugin.m_cloud_resources.users'
+        'plugin.cake_resource.projects',
+        'plugin.cake_auth.users'
     ];
 
     /**
@@ -36,8 +36,8 @@ class ResourceGroupsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('ResourceGroups') ? [] : ['className' => 'MCloudResources\Model\Table\ResourceGroupsTable'];
-        $this->ResourceGroups = TableRegistry::get('ResourceGroups', $config);
+        $config = TableRegistry::exists('Projects') ? [] : ['className' => 'CakeResource\Model\Table\ProjectsTable'];
+        $this->Projects = TableRegistry::get('Projects', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class ResourceGroupsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->ResourceGroups);
+        unset($this->Projects);
 
         parent::tearDown();
     }
