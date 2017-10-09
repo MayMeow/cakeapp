@@ -65,5 +65,5 @@
     </tr>
 </table>
 
-<?= $this->Element('MCloudResources.Group/repositories')?>
+<?= $this->Element('CakeResource.Group/repositories')?>
 <!-- End page Content -->

@@ -193,7 +193,7 @@ class GitRepositoriesController extends AppController
     protected function _getNamespaces()
     {
         $usersTable = TableRegistry::get('Users');
-        $groupTable = TableRegistry::get('ResourceGroups');
+        $groupTable = TableRegistry::get('Projects');
 
         $users = $usersTable->find('list', [
             'keyField' => 'username',
@@ -202,7 +202,7 @@ class GitRepositoriesController extends AppController
         $groups = $groupTable->find('list', [
             'keyField' => 'slug',
             'valueField' => 'name',
-        ])->where(['ResourceGroups.user_id' => $this->Auth->user('id')]);
+        ])->where(['Projects.user_id' => $this->Auth->user('id')]);
 
         return array_merge($users->toArray(), $groups->toArray());
     }

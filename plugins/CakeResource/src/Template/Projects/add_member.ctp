@@ -25,7 +25,7 @@ Cms
             </div>
         </h3>
 
-        <?= $this->element('MCloudResources.admin_menu') ?>
+        <?= $this->element('CakeResource.admin_menu') ?>
 
     </div>
 </div>

@@ -1,0 +1,23 @@
+{
+    "name": "your-name-here/CakeMetronic",
+    "description": "CakeMetronic plugin for CakePHP",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "require": {
+        "cakephp/cakephp": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CakeMetronic\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CakeMetronic\\Test\\": "tests",
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+        }
+    }
+}

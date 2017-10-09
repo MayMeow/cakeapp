@@ -3,7 +3,7 @@
 <?php $this->assign('page-title', 'Group'); ?>
 
 <?php $this->start('page-menu'); ?>
-<?= $this->element('MCloudResources.admin_menu') ?>
+<?= $this->element('CakeResource.admin_menu') ?>
 <?php $this->end() ?>
 
 <?php $this->start('header-buttons'); ?>
@@ -66,5 +66,5 @@
     </tr>
 </table>
 
-<?= $this->Element('MCloudResources.Group/people', ['data' => $resourceGroup->people, 'ID' => $resourceGroup->id])?>
+<?= $this->Element('CakeResource.Group/people', ['data' => $resourceGroup->people, 'ID' => $resourceGroup->id])?>
 <!-- End page Content -->

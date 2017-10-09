@@ -23,6 +23,9 @@
         <testsuite name="Cake Auth">
             <directory>./plugins/CakeAuth/tests/TestCase</directory>
         </testsuite>
+        <testsuite name="Cake Auth">
+            <directory>./plugins/CakeStorage/tests/TestCase</directory>
+        </testsuite>
     </testsuites>
 
     <!-- Setup a listener for fixtures -->

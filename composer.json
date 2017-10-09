@@ -58,7 +58,8 @@
             "CakeApp\\Component\\Licensing\\": "./plugins/CakeAppLicensing/src",
             "CakeApp\\Component\\Core\\": "./plugins/CakeAppCore/src",
             "CakeConfigure\\": "./plugins/CakeConfigure/src",
-            "CakeActivity\\": "./plugins/CakeActivity/src"
+            "CakeActivity\\": "./plugins/CakeActivity/src",
+            "CakeMetronic\\": "./plugins/CakeMetronic/src"
         }
     },
     "autoload-dev": {
@@ -83,7 +84,8 @@
             "CakeApp\\Test\\": "./plugins/CakeApp/tests",
             "CakeFontAwesome\\Test\\": "./plugins/CakeFontAwesome/tests",
             "CakeConfigure\\Test\\": "./plugins/CakeConfigure/tests",
-            "CakeActivity\\Test\\": "./plugins/CakeActivity/tests"
+            "CakeActivity\\Test\\": "./plugins/CakeActivity/tests",
+            "CakeMetronic\\Test\\": "./plugins/CakeMetronic/tests"
         }
     },
     "scripts": {

@@ -164,7 +164,7 @@ class BucketsController extends AppController
             }
         }
 
-        $groupsModel = $this->loadModel('McloudResources.ResourceGroups');
+        $groupsModel = $this->loadModel('CakeResource.Projects');
         $groups = $groupsModel->find('list', ['limit' => 200]);
         $this->set(compact('bucket', 'groups'));
         $this->set('_serialize', ['bucket']);

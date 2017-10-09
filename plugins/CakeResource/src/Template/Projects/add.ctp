@@ -1,4 +1,4 @@
-<?php $this->extend('CakeApp.Common/form');?>
+<?php $this->extend('CakeApp.Common/form'); ?>
 
 <?php $this->assign('page-title', 'Resource Groups'); ?>
 
@@ -9,16 +9,17 @@
 <?php $this->start('header-buttons'); ?>
 <div class="btn-group">
     <?= $this->Html->link(__('New Resource Group'), ['action' => 'add'], ['class' => 'btn btn-sm btn-default']) ?>
-    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
         <i class="fa fa-chevron-down"></i>
     </button>
     <ul class="dropdown-menu dropdown-menu-left">
         <li><?= $this->Html->link(__('List Resource Groups'), ['action' => 'index']) ?> </li>
-                <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-                <li><?= $this->Html->link(__('List Buckets'), ['controller' => 'Buckets', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('List Buckets'), ['controller' => 'Buckets', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Bucket'), ['controller' => 'Buckets', 'action' => 'add']) ?> </li>
-            </ul>
+    </ul>
 </div>
 <?php $this->end() ?>
 
@@ -33,25 +34,25 @@
     </div>
     <div class="panel-body">
         <?= $this->Form->create($resourceGroup, ['align' => [
-        'sm' => [
-        'left' => 6,
-        'middle' => 6,
-        'right' => 12
-        ],
-        'md' => [
-        'left' => 3,
-        'middle' => 9
-        ]
+            'sm' => [
+                'left' => 6,
+                'middle' => 6,
+                'right' => 12
+            ],
+            'md' => [
+                'left' => 3,
+                'middle' => 9
+            ]
         ]]) ?>
 
         <div class="form-body">
             <?php
-                        echo $this->Form->input('name');
-                        echo $this->Form->input('uid');
-                        echo $this->Form->input('user_id', ['options' => $users]);
-                        echo $this->Form->input('slug');
-                        echo $this->Form->input('people._ids', ['options' => $people]);
-                        ?>
+            echo $this->Form->input('name');
+            //echo $this->Form->input('uid');
+            //echo $this->Form->input('user_id', ['options' => $users]);
+            //echo $this->Form->input('slug');
+            //echo $this->Form->input('people._ids', ['options' => $people]);
+            ?>
         </div>
         <div class="form-action">
             <div class="row">

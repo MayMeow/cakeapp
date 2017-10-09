@@ -280,3 +280,5 @@ Plugin::load('CakeActivity', ['bootstrap' => false, 'routes' => true]);
 // CakeApp Enterprise edition plugins
 
 Plugin::load('MayCa', ['bootstrap' => false, 'routes' => true]);
+
+Plugin::load('CakeMetronic', ['bootstrap' => false, 'routes' => true]);

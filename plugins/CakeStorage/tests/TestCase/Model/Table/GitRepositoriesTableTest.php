@@ -25,7 +25,7 @@ class GitRepositoriesTableTest extends TestCase
      */
     public $fixtures = [
         'plugin.cake_storage.git_repositories',
-        'plugin.cake_storage.users'
+        'plugin.cake_auth.users'
     ];
 
     /**
