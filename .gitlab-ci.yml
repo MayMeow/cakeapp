@@ -130,7 +130,7 @@ db:postgres-setup-script:
     script:
         - bin/cake plugin loaded
         - bin/cake mcloud_setup
-        - bin/cake cakeapp_migrations status
+        - bin/cake cake_app_migrations status
     tags:
         - home
         - docker
