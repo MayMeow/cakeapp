@@ -1,11 +1,11 @@
 <?php
-namespace MCloudResources\Test\TestCase\Controller;
+namespace CakeResource\Test\TestCase\Controller;
 
 use Cake\TestSuite\IntegrationTestCase;
-use MCloudResources\Controller\CompaniesController;
+use CakeResource\Controller\CompaniesController;
 
 /**
- * MCloudResources\Controller\CompaniesController Test Case
+ * CakeResource\Controller\CompaniesController Test Case
  */
 class CompaniesControllerTest extends IntegrationTestCase
 {
@@ -16,7 +16,7 @@ class CompaniesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.m_cloud_resources.companies'
+        'plugin.cake_resource.companies'
     ];
 
     /**

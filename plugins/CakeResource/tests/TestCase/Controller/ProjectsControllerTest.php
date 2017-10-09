@@ -7,7 +7,7 @@ use MCloudResources\Controller\ResourceGroupsController;
 /**
  * MCloudResources\Controller\ResourceGroupsController Test Case
  */
-class ResourceGroupsControllerTest extends IntegrationTestCase
+class ProjectsControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,7 +16,7 @@ class ResourceGroupsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.m_cloud_resources.resource_groups'
+        'plugin.cake_resource.projects'
     ];
 
     /**

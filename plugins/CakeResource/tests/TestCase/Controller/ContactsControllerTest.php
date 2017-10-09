@@ -1,11 +1,11 @@
 <?php
-namespace MCloudResources\Test\TestCase\Controller;
+namespace CakeResource\Test\TestCase\Controller;
 
 use Cake\TestSuite\IntegrationTestCase;
-use MCloudResources\Controller\ContactsController;
+use CakeResource\Controller\ContactsController;
 
 /**
- * MCloudResources\Controller\ContactsController Test Case
+ * CakeResource\Controller\ContactsController Test Case
  */
 class ContactsControllerTest extends IntegrationTestCase
 {
@@ -16,7 +16,7 @@ class ContactsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'plugin.m_cloud_resources.contacts'
+        'plugin.cake_resource.contacts'
     ];
 
     /**
