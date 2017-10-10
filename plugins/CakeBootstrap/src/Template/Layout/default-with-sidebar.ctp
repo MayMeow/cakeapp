@@ -72,7 +72,7 @@
                         'controller' => 'Issues', 'action' => 'index'
                     ]) ?>">Issues</a></li>
                 <li><a href="<?= $this->Url->build([
-                        'prefix' => false, 'plugin' => 'MCloudResources',
+                        'prefix' => false, 'plugin' => 'CakeResource',
                         'controller' => 'ResourceGroups', 'action' => 'index'
                     ]) ?>">Groups</a></li>
                 <li><a href="<?= $this->Url->build([

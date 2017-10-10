@@ -43,7 +43,7 @@ class DisksTable extends Table
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
-            'className' => 'CakeStorage.Users'
+            'className' => 'CakeAuth.Users'
         ]);
     }
 

@@ -105,9 +105,9 @@ define('CAKEAPP_SHELL_HOOKS', ROOT . DS . 'plugins' . DS . 'CakeAppShell' . DS .
 
 // on production enviroment change to  /var/opt/platform/data
 
- define('DATA_STORE', DS . 'cakeapp' . DS);
+// define('DATA_STORE', DS . 'cakeapp' . DS);
 
-// define('DATA_STORE', ROOT . DS . 'data' . DS);
+ define('DATA_STORE', ROOT . DS . 'data' . DS);
 
 define('NO_SQL', DATA_STORE . 'may-db' . DS);
 

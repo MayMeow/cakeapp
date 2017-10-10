@@ -25,7 +25,7 @@ class DisksTableTest extends TestCase
      */
     public $fixtures = [
         'plugin.cake_storage.disks',
-        'plugin.cake_storage.users'
+        'plugin.cake_auth.users'
     ];
 
     /**

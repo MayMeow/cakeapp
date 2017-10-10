@@ -259,7 +259,7 @@ Plugin::load('CakeStorage', ['bootstrap' => false, 'routes' => true]);
 
 Plugin::load('CakeNetworking', ['bootstrap' => false, 'routes' => true]);
 
-Plugin::load('MCloudResources', ['bootstrap' => false, 'routes' => true]);
+Plugin::load('CakeResource', ['bootstrap' => false, 'routes' => true]);
 
 Plugin::load('MCloudCompute', ['bootstrap' => false, 'routes' => true]);
 
@@ -277,6 +277,8 @@ Plugin::load('CakeConfigure', ['bootstrap' => false, 'routes' => true]);
 
 Plugin::load('CakeActivity', ['bootstrap' => false, 'routes' => true]);
 
-// CakeApp Enterpris edition plugins
+// CakeApp Enterprise edition plugins
 
 Plugin::load('MayCa', ['bootstrap' => false, 'routes' => true]);
+
+Plugin::load('CakeMetronic', ['bootstrap' => false, 'routes' => true]);

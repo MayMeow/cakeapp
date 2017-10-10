@@ -30,10 +30,14 @@ class McloudSetupShell extends Shell
      */
     public function main()
     {
+        // Run migrations if need change project name here
+        $this->dispatchShell('migrations migrate');
+
+        // Runs other plugins migrations
         $this->dispatchShell('migrations migrate -p CakeAuth');
         $this->dispatchShell('migrations migrate -p CakeStorage');
         $this->dispatchShell('migrations migrate -p CakeNetworking');
-        $this->dispatchShell('migrations migrate -p MCloudResources');
+        $this->dispatchShell('migrations migrate -p CakeResource');
         $this->dispatchShell('migrations migrate -p MCloudHome');
         $this->dispatchShell('migrations migrate -p MCloudCompute');
         $this->dispatchShell('migrations migrate -p CloudToDo');
