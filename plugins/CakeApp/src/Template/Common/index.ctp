@@ -1,4 +1,4 @@
-<?php $this->layout = 'CakeBootstrap.default-with-sidebar'; ?>
+<?php $this->layout = 'CakeMetronic.default'; ?>
 
 <?php $this->start('subtitle_for_page'); ?>
 Cms

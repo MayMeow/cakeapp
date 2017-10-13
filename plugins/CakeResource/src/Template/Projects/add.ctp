@@ -1,4 +1,4 @@
-<?php $this->extend('CakeApp.Common/form'); ?>
+<?php $this->extend('CakeMetronic./Common/_layout'); ?>
 
 <?php $this->assign('page-title', 'Resource Groups'); ?>
 

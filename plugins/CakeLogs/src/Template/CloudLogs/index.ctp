@@ -1,4 +1,4 @@
-<?php $this->extend('CakeApp.Common/index');?>
+<?php $this->extend('CakeMetronic./Common/_layout'); ?>
 
 <?php $this->assign('page-title', 'Cloud Logs'); ?>
 
