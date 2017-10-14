@@ -6,18 +6,18 @@
 	<!-- BEGIN: Aside Menu -->
 	<div 
 		id="m_ver_menu" 
-		class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " 
+		class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-light m-aside-menu--dropdown "
 		data-menu-vertical="true"
-		 data-menu-scrollable="true" data-menu-dropdown-timeout="500"  
+         data-menu-dropdown="true" data-menu-scrollable="true" data-menu-dropdown-timeout="500"
 		>
 		<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-<!--			<li class="m-menu__item  m-menu__item--active" aria-haspopup="true" >
+			<li class="m-menu__item  m-menu__item--active" aria-haspopup="true" >
 				<a  href="?page=index" class="m-menu__link ">
 					<i class="m-menu__link-icon flaticon-line-graph"></i>
 					<span class="m-menu__link-title">
 						<span class="m-menu__link-wrap">
 							<span class="m-menu__link-text">
-								Dashboard
+								Activity
 							</span>
 							<span class="m-menu__link-badge">
 								<span class="m-badge m-badge--danger">
@@ -27,7 +27,7 @@
 						</span>
 					</span>
 				</a>
-			</li>-->
+			</li>
 			<li class="m-menu__section">
 				<h4 class="m-menu__section-text">
 					Components
@@ -35,34 +35,35 @@
 				<i class="m-menu__section-icon flaticon-more-v3"></i>
 			</li>
 
-
-
             <?php foreach ($items as $menu_item) : ?>
-                <li class="m-menu__item  m-menu__item--submenu <?= $menu_item->hasActivePlugin($this->request->params['plugin']) ? 'm-menu__item--active' : '' ?>">
-                    <a href="<?= $this->Url->build($menu_item->getUrl()) ?>" class="m-menu__link m-menu__toggle">
-                        <i class="m-menu__link-icon flaticon-layers"></i>
-                        <span class="m-menu__link-text">
-                            <?= $menu_item->getTitle() ?>
-                        </span>
-                        <i class="m-menu__ver-arrow la la-angle-right"></i>
-                    </a>
-                    <?php if ($this->request->params['plugin'] == ($menu_item->getUrl())['plugin']): ?>
-                    <div class="m-menu__submenu">
-                        <span class="m-menu__arrow"></span>
-                        <ul class="m-menu__subnav">
-                            <?php foreach ($menu_item->getEntries() as $action_item) : ?>
-                                <li class="m-menu__item  m-menu__item--parent" aria-haspopup="true">
-                                    <a  href="<?= $this->Url->build($action_item->getUrl()) ?>" class="m-menu__link ">
-                                        <span class="m-menu__link-text">
-                                            <?= __($action_item->getTitle()) ?>
-                                        </span>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+            <li class="m-menu__item  m-menu__item--submenu <?= $menu_item->hasActivePlugin($this->request->params['plugin']) ? 'm-menu__item--active m-menu__item--open' : '' ?>" aria-haspopup="true"  data-menu-submenu-toggle="hover">
+                <a  href="#" class="m-menu__link m-menu__toggle">
+                    <i class="m-menu__link-icon flaticon-share"></i>
+                    <span class="m-menu__link-text">
+						<?= $menu_item->getTitle() ?>
+					</span>
+                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                </a>
+                <div class="m-menu__submenu">
+                    <span class="m-menu__arrow"></span>
+                    <?php if (true): ?>
+                    <ul class="m-menu__subnav">
+                        <?php foreach ($menu_item->getEntries() as $action_item) : ?>
+                        <li class="m-menu__item <?= $this->request->params['controller'] == ($action_item->getUrl())['controller'] ? 'm-menu__item--active' : '' ?>" aria-haspopup="true" >
+                            <a  href="<?= $this->Url->build($action_item->getUrl()) ?>" class="m-menu__link ">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                    <span></span>
+                                </i>
+                                <span class="m-menu__link-text">
+									<?= __($action_item->getTitle()) ?>
+								</span>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
                     <?php endif; ?>
-                </li>
+                </div>
+            </li>
             <?php endforeach; ?>
 
 

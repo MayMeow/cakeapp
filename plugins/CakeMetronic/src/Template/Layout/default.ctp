@@ -44,6 +44,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--<link href="./assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />-->
     <?= $this->Html->css('CakeMetronic./vendors/base/vendors.bundle'); ?>
     <?= $this->Html->css('CakeMetronic./demo/default/base/style.bundle'); ?>
+    <?= $this->Html->css('CakeMetronic.custom.style'); ?>
     <!--end::Base Styles -->
     <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico" />
 </head>
