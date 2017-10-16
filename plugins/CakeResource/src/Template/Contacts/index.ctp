@@ -1,4 +1,4 @@
-<?php $this->extend('CakeApp.Common/index'); ?>
+<?php $this->extend('CakeMetronic./Common/_layout'); ?>
 
 <?php $this->assign('page-title', 'Contacts'); ?>
 
@@ -32,19 +32,37 @@
 
 <!-- Begin page content -->
 
-<?php if (count($contacts) > 0) : ?>
-    <div class="row">
-        <div class="col-md-12">
+<div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">
+    <div class="m-alert__icon">
+        <i class="flaticon-exclamation m--font-brand"></i>
+    </div>
+    <div class="m-alert__text">
+        Contacts of known people. They can be used in some function to send emails.
+    </div>
+</div>
 
-            <div class="table-responsive">
-                <table class="table table-hover table-vcenter">
-                    <thead>
+<div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <div class="m-portlet__head-text">
+                    Contacts index
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-portlet__body">
+
+        <div class="m-section">
+            <div class="m-section__content">
+                <table class="table m-table hs_table-striped table-hover">
+                    <thead class="thead-default">
                     <tr>
-                        <td><?= $this->Paginator->sort('name') ?></td>
-                        <td><?= $this->Paginator->sort('description') ?></td>
-                        <td><?= $this->Paginator->sort('email') ?></td>
-                        <td><?= $this->Paginator->sort('mobile') ?></td>
-                        <td class="actions text-center"><?= __('Actions') ?></td>
+                        <th><?= $this->Paginator->sort('name') ?></th>
+                        <th><?= $this->Paginator->sort('description') ?></th>
+                        <th><?= $this->Paginator->sort('email') ?></th>
+                        <th><?= $this->Paginator->sort('mobile') ?></th>
+                        <th class="actions text-center"><?= __('Actions') ?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,16 +72,8 @@
                             <td><?= h($contact->description) ?></td>
                             <td><?= h($contact->email) ?></td>
                             <td><?= h($contact->mobile) ?></td>
-                            <td class="actions text-center">
-                                <div class="btn-group">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $contact->id], ['class' => 'btn btn-xs btn-default']) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $contact->id], ['class' => 'btn btn-xs btn-default']) ?>
-                                    <button class="btn btn-xs btn-danger" type="button" data-toggle="modal"
-                                            data-target="#modal-delete-<?= $contact->id ?>">Delete
-                                    </button>
-
-                                </div>
-                                <?= $this->element('CakeBootstrap.deletemodal', ['id' => $contact->id, 'name' => $contact->id]); ?>
+                            <td class="text-center">
+                                <?= $this->element('CakeMetronic.Table/_actions', ['id' => $contact->id])?>
                             </td>
                         </tr>
 
@@ -71,6 +81,16 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+
+    </div>
+</div>
+
+<?php if (count($contacts) > 0) : ?>
+    <div class="row">
+        <div class="col-md-12">
+
+
 
         </div>
     </div>

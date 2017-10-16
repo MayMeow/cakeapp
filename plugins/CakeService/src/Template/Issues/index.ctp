@@ -1,4 +1,4 @@
-<?php $this->extend('CakeApp.Common/view'); ?>
+<?php $this->extend('CakeMetronic./Common/_layout'); ?>
 
 <?php $this->assign('page-title', 'Issues'); ?>
 

@@ -46,7 +46,7 @@ class MenuFactory
              * CakeStorage
              */
             new MenuDropdown('<i class="far fa-server"></i> Storage', ['prefix' => false, 'plugin' => 'CakeStorage', 'controller' => 'GitRepositories', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fab fa-git"></i> Repositories', ['plugin' => 'CakeStorage', 'action' => 'index', 'controller' => 'GitRepositories'], ['escape' => false, 'class' => 'nav-link']),
+                new MenuItem('<i class="fab fa-git"></i> Code Repositories', ['plugin' => 'CakeStorage', 'action' => 'index', 'controller' => 'GitRepositories'], ['escape' => false, 'class' => 'nav-link']),
                 new MenuItem('<i class="fab fa-bitbucket"></i> Buckets', ['plugin' => 'CakeStorage', 'action' => 'index', 'controller' => 'Buckets'], ['escape' => false, 'class' => 'nav-link']),
             ]),
             /**
