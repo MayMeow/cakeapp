@@ -41,59 +41,55 @@
     </div>
 </div>
 
-<div class="m-portlet m-portlet--mobile">
-    <div class="m-portlet__head">
-        <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-                <div class="m-portlet__head-text">
-                    Contacts index
+
+
+<?php if (count($contacts) > 0) : ?>
+
+    <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <div class="m-portlet__head-text">
+                        Contacts index
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="m-portlet__body">
+        <div class="m-portlet__body">
 
-        <div class="m-section">
-            <div class="m-section__content">
-                <table class="table m-table hs_table-striped table-hover">
-                    <thead class="thead-default">
-                    <tr>
-                        <th><?= $this->Paginator->sort('name') ?></th>
-                        <th><?= $this->Paginator->sort('description') ?></th>
-                        <th><?= $this->Paginator->sort('email') ?></th>
-                        <th><?= $this->Paginator->sort('mobile') ?></th>
-                        <th class="actions text-center"><?= __('Actions') ?></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($contacts as $contact): ?>
+            <div class="m-section">
+                <div class="m-section__content">
+                    <table class="table m-table hs_table-striped table-hover">
+                        <thead class="thead-default">
                         <tr>
-                            <td><label class="label label-info"><?= $this->Number->format($contact->id) ?></label> <?= h($contact->name) ?></td>
-                            <td><?= h($contact->description) ?></td>
-                            <td><?= h($contact->email) ?></td>
-                            <td><?= h($contact->mobile) ?></td>
-                            <td class="text-center">
-                                <?= $this->element('CakeMetronic.Table/_actions', ['id' => $contact->id])?>
-                            </td>
+                            <th><?= $this->Paginator->sort('name') ?></th>
+                            <th><?= $this->Paginator->sort('description') ?></th>
+                            <th><?= $this->Paginator->sort('email') ?></th>
+                            <th><?= $this->Paginator->sort('mobile') ?></th>
+                            <th class="actions text-center"><?= __('Actions') ?></th>
                         </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($contacts as $contact): ?>
+                            <tr>
+                                <td><label class="label label-info"><?= $this->Number->format($contact->id) ?></label> <?= h($contact->name) ?></td>
+                                <td><?= h($contact->description) ?></td>
+                                <td><?= h($contact->email) ?></td>
+                                <td><?= h($contact->mobile) ?></td>
+                                <td class="text-center">
+                                    <?= $this->element('CakeMetronic.Table/_actions', ['id' => $contact->id])?>
+                                </td>
+                            </tr>
 
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 </div>
 
-<?php if (count($contacts) > 0) : ?>
-    <div class="row">
-        <div class="col-md-12">
-
-
-
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-12">
             <ul class="pagination">
@@ -106,18 +102,28 @@
 
 <?php else : ?>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-body text-center">
-                    <h2><i class="fa fa-plus-square-o text-amethyst"></i></h2>
-                    <p><strong>You currently have now Contacts</strong></p>
-                    <p>To get started, click to button bellow and create new Contact</p>
-                    <?= $this->Html->link(__('Add new Contact'), ['action' => 'add'], ['class' => 'btn btn-sm btn-primary']); ?>
-                </div>
+
+<div class="m-portlet m-portlet--skin-dark m-portlet--bordered-semi m--bg-brand">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon">
+                    <i class="flaticon-add"></i>
+                </span>
+                <h3 class="m-portlet__head-text">
+                    You dont have any contacts now
+                </h3>
             </div>
         </div>
     </div>
+    <div class="m-portlet__body text-center">
+        <p>You can create one by clicking button bellow</p>
+        <?= $this->Html->link(__('Add new Contact'), ['action' => 'add'], ['class' => 'btn m-btn--pill m-btn--air btn-outline-accent m-btn m-btn--outline-2x']); ?>
+    </div>
+</div>
+
+
+
 
 <?php endif; ?>
 
