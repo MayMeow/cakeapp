@@ -9,6 +9,9 @@
                 <div class="m-dropdown__body">
                     <div class="m-dropdown__content">
                         <ul class="m-nav">
+                            <li class="m-nav__section m-nav__section--first m--hide">
+                                <span class="m-nav__section-text">Quick Actions</span>
+                            </li>
                             <li class="m-nav__item">
                                 <a href="<?= $this->Url->build(['action' => 'view', $id])?>" class="m-nav__link">
                                     <i class="m-nav__link-icon flaticon-imac"></i>
@@ -16,7 +19,7 @@
                                 </a>
                             </li>
                             <li class="m-nav__item">
-                                <a href="<? $this->Url->build(['action' => 'edit', $id])?>" class="m-nav__link">
+                                <a href="<?= $this->Url->build(['action' => 'edit', $id])?>" class="m-nav__link">
                                     <i class="m-nav__link-icon flaticon-edit"></i>
                                     <span class="m-nav__link-text">Edit</span>
                                 </a>
