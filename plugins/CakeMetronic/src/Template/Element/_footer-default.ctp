@@ -6,7 +6,7 @@
 				<span class="m-footer__copyright">
 					<i class="la la-code"></i> with <i class="la la-heart-o"></i> by
 					<a href="#" class="m-link">
-						Martin
+						HS0808
 					</a>
 				</span>
 			</div>

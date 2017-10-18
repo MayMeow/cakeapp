@@ -158,3 +158,5 @@ $menu = new MenuDropdown('<i class="far fa-database"></i> Overview', ['prefix' =
 ]);
 
 var_dump($menu->getPlugins());
+
+new ObjectSerializer()
