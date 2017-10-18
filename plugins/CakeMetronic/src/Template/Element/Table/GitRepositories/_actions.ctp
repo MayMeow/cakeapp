@@ -13,7 +13,7 @@
                                 <span class="m-nav__section-text">Quick Actions</span>
                             </li>
                             <li class="m-nav__item">
-                                <a href="<?= $this->Url->build(['action' => 'view', $id])?>" class="m-nav__link">
+                                <a href="<?= $this->Url->build(['action' => 'view', $namespace, $slug, 'tree'])?>" class="m-nav__link">
                                     <i class="m-nav__link-icon flaticon-imac"></i>
                                     <span class="m-nav__link-text">View</span>
                                 </a>
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <a href="<?= $this->Url->build(['action' => 'view', $id])?>" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill">
+    <a href="<?= $this->Url->build(['action' => 'view', $namespace, $slug, 'tree'])?>" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill">
             <i class="la la-desktop"></i>
         </a>
     <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="modal" data-target="#m_modal_<?= $id ?>">
