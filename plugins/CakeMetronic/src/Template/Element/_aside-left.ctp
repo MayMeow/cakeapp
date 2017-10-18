@@ -38,7 +38,7 @@
             <?php foreach ($items as $menu_item) : ?>
             <li class="m-menu__item  m-menu__item--submenu <?= $menu_item->hasActivePlugin($this->request->params['plugin']) ? 'm-menu__item--active m-menu__item--open' : '' ?>" aria-haspopup="true"  data-menu-submenu-toggle="hover">
                 <a  href="#" class="m-menu__link m-menu__toggle">
-                    <i class="m-menu__link-icon flaticon-share"></i>
+                    <i class="m-menu__link-icon <?= $menu_item->getIcon() ?>"></i>
                     <span class="m-menu__link-text">
 						<?= $menu_item->getTitle() ?>
 					</span>

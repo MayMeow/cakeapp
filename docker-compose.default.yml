@@ -30,8 +30,8 @@ services:
             EMAIL_TRANSPORT: Smtp
             EMAIL_SMTP_HOST: "smtp.websupport.sk"
             EMAIL_SMTP_PORT: 25
-            EMAIL_SMTP_USER: "cakeapp@cakehub.sk"
-            EMAIL_SMTP_PASSWORD: "CnbMXXPegu"
+            EMAIL_SMTP_USER: ""
+            EMAIL_SMTP_PASSWORD: ""
 
 
 

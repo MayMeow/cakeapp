@@ -1,22 +1,12 @@
 <?php $this->extend('CakeMetronic./Common/_layout'); ?>
 
-<?php $this->assign('page-title', 'Contacts'); ?>
-
-<?php $this->start('page-menu'); ?>
-<?= $this->element('MayMeow.Crud/admin_menu', ['admin_menu' => $crud_admin_menu]) ?>
-<?php $this->end() ?>
+<?php $this->assign('page-title', 'Users'); ?>
 
 <?php $this->start('header-dropdown-content'); ?>
 <li class="m-nav__item">
     <a href="" class="m-nav__link">
     <i class="m-nav__link-icon flaticon-share"></i>
     <span class="m-nav__link-text">Activity</span>
-    </a>
-</li>
-<li class="m-nav__item">
-    <a href="" class="m-nav__link">
-    <i class="m-nav__link-icon flaticon-share"></i>
-    <span class="m-nav__link-text">Companies</span>
     </a>
 </li>
 <?php $this->end() ?>
@@ -30,13 +20,13 @@
 <li class="m-nav__separator">-</li>
 <li class="m-nav__item">
 <a href="" class="m-nav__link">
-    <span class="m-nav__link-text">Resources</span>
+    <span class="m-nav__link-text">Base</span>
 </a>
 </li>
 <li class="m-nav__separator">-</li>
 <li class="m-nav__item">
 <a href="" class="m-nav__link">
-    <span class="m-nav__link-text">Contacts</span>
+    <span class="m-nav__link-text">Navs</span>
 </a>
 </li>
 <?php $this->end() ?>
@@ -48,20 +38,20 @@
         <i class="flaticon-exclamation m--font-brand"></i>
     </div>
     <div class="m-alert__text">
-        Contacts of known people. They can be used in some function to send emails.
+        Here you can manage users on your server
     </div>
 </div>
 
 
 
-<?php if (count($contacts) > 0) : ?>
+<?php if (count($users) > 0) : ?>
 
     <div class="m-portlet m-portlet--mobile">
         <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
                     <div class="m-portlet__head-text">
-                        Contacts index
+                        Users index
                     </div>
                 </div>
             </div>
@@ -70,31 +60,42 @@
 
             <div class="m-section">
                 <div class="m-section__content">
-                    <table class="table m-table hs_table-striped table-hover">
-                        <thead class="thead-default">
-                        <tr>
-                            <th><?= $this->Paginator->sort('name') ?></th>
-                            <th><?= $this->Paginator->sort('description') ?></th>
-                            <th><?= $this->Paginator->sort('email') ?></th>
-                            <th><?= $this->Paginator->sort('mobile') ?></th>
-                            <th class="actions text-center"><?= __('Actions') ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($contacts as $contact): ?>
-                            <tr>
-                                <td><label class="label label-info"><?= $this->Number->format($contact->id) ?></label> <?= h($contact->name) ?></td>
-                                <td><?= h($contact->description) ?></td>
-                                <td><?= h($contact->email) ?></td>
-                                <td><?= h($contact->mobile) ?></td>
-                                <td class="text-center">
-                                    <?= $this->element('CakeMetronic.Table/_actions', ['id' => $contact->id])?>
-                                </td>
-                            </tr>
+                <table class="table m-table table-hover hs_table-striped">
+                <thead class="thead-default">
+                <tr>
+                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('username') ?></th>
 
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                    <th><?= $this->Paginator->sort('role') ?></th>
+                    <th><?= $this->Paginator->sort('verified') ?></th>
+                    <th>2FA</th>
+                    <th><?= $this->Paginator->sort('created') ?></th>
+
+                    <th class="actions text-center"><?= __('Actions') ?></td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($users as $user): ?>
+                    <tr>
+                        <td><?= $this->Number->format($user->id) ?></td>
+                        <td>
+                            <strong><i class="fa fa-user-circle"></i></strong>
+                            <?= h($user->username) ?>
+                        </td>
+
+                        <td><label class="label label-info"><?= h($user->role) ?></label></td>
+                        <td><?= h($user->verified) ?></td>
+                        <td><?= $user->two_fa_secret ? '<i class="fa fa-lock text-success"></i>' : '<i class="fa fa-times"></i>' ?></td>
+                        <td><?= h($user->created) ?></td>
+
+                        <td class="actions text-center">
+                        <?= $this->element('CakeMetronic.Table/_actions', ['id' => $user->id])?>
+                        </td>
+                    </tr>
+
+                <?php endforeach; ?>
+                </tbody>
+            </table>
                 </div>
             </div>
 
@@ -122,14 +123,14 @@
                     <i class="flaticon-add"></i>
                 </span>
                 <h3 class="m-portlet__head-text">
-                    You dont have any contacts now
+                    You dont have any Users now
                 </h3>
             </div>
         </div>
     </div>
     <div class="m-portlet__body text-center">
         <p>You can create one by clicking button bellow</p>
-        <?= $this->Html->link(__('Add new Contact'), ['action' => 'add'], ['class' => 'btn m-btn--pill m-btn--air btn-outline-accent m-btn m-btn--outline-2x']); ?>
+        <?= $this->Html->link(__('Add new User'), ['action' => 'add'], ['class' => 'btn m-btn--pill m-btn--air btn-outline-accent m-btn m-btn--outline-2x']); ?>
     </div>
 </div>
 
