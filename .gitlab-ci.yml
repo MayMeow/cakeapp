@@ -72,15 +72,18 @@ stages:
     - rm -rf ./tmp
     - rm -rf ./logs
 
+.run-on-do-docker: &run-on-do-docker
+    tags:
+        - digitalocean
+        - docker
+
 # Prepare Section
 # -----------------------------------
 setup-cakeapp:
     <<: *push-cache
     stage: prepare
     script: *install-dependencies
-    tags:
-        - home
-        - docker
+    <<: *run-on-do-docker
 
 # Post-Test section
 # -----------------------------------
@@ -95,9 +98,7 @@ php lint:
     before_script: *install-dependencies
     script: *php-lint
     allow_failure: true
-    tags:
-        - home
-        - docker
+    <<: *run-on-do-docker
 
 # Test section
 # -----------------------------------
@@ -115,9 +116,7 @@ php:mariadb-phpunit:
     script:
         # - bin/cake mcloud_setup
         - phpunit --coverage-text --colors=never
-    tags:
-        - home
-        - docker
+    <<: *run-on-do-docker
 
 db:postgres-setup-script:
     <<: *pull-cache
@@ -131,9 +130,7 @@ db:postgres-setup-script:
         - bin/cake plugin loaded
         - bin/cake mcloud_setup
         - bin/cake cake_app_migrations status
-    tags:
-        - home
-        - docker
+    <<: *run-on-do-docker
 
 db:postgres-migrations:
     <<: *pull-cache
@@ -146,9 +143,7 @@ db:postgres-migrations:
     script:
         - bin/cake migrations migrate -p CakeAuth
         - bin/cake migrations rollback -p CakeAuth
-    tags:
-        - home
-        - docker
+    <<: *run-on-do-docker
 
 # Build section
 # -----------------------------------
@@ -161,11 +156,10 @@ docker:build-master:
         - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     script: *clean-folders
     after_script:
+        - cp docker-compose.default.yml docker-compose.yml
         - docker build --pull -t "$CI_REGISTRY_IMAGE" .
         - docker push "$CI_REGISTRY_IMAGE"
-    tags:
-       - home
-       - docker
+    <<: *run-on-do-docker
     only:
         - master
 
@@ -182,9 +176,7 @@ docker:build-tags:
     after_script:
         - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
         - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-    tags:
-       - home
-       - docker
+    <<: *run-on-do-docker
     only:
         - tags
 
@@ -201,11 +193,22 @@ publish artifacts:
     script: *clean-folders
     only:
         - tags
-    tags:
-        - home
-        - docker
+    <<: *run-on-do-docker
     artifacts:
         name: "cakeapp-ce-${CI_COMMIT_TAG}"
         paths:
             - .
         expire_in: 7 days
+
+# Publishing for github
+publish to gitlab:
+    image: registry.cakehub.sk/cakeci/github-deploy:latest
+    stage: deploy
+    environment:
+        name: staging
+    only:
+        - github-master
+    script:
+        - git@github.com:CakeAppSK/cakeapp-ce.git github-master
+    <<: *run-on-do-docker
+    when: manual

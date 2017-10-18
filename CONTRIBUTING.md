@@ -33,21 +33,41 @@
 # Environments and branches
 
 * Staging - master branch
+* Development - branches created from issues
 * Release - tags
 
 ## Branches and tags
 
 * `master` default and protected branch
-* features - branches created from issue must checkout and push to/from `master`
-* `*stable*` branches - protected branches, for example 2017-9-stable for each version of v2017.9.x, checked out from `master`
-* tags - defining release version, they are made from stable branches
+* `github-dev` branch which is ommited to and from github (protected)
+
+# Commit Acceptance
+
+* Commits must be made to branches which is created from issue docummented in tracker
+* Must be as small as possible (do not edit what you dont need)
+* If you find bug or something blocked your work create new issue.
 
 ## Flow
 
+### New features 
+
 1.  New fetures and bug fixes must be docummented in issue tracker, from here will be created new branch `x-my-feature` (where x is issue ID) checked out from `master` branch
-2.  After work is done create Merge request back to master
+2.  After work is done create Merge request back to `master`
 3.  New features will be added into `stable` branche before release
 4.  From stable branche will be created new tag and release
+
+### Bugs and hotfixes
+
+1. Found bug must be docummented in issue tracker, from here will be created new branch checked out from master
+2. After work is done create Merge request back to master
+3. After succesfull test will be merged back to master
+4. Merge request will be cherry picked into stable branche and if test will be completed then new release will be created
+
+## GitHub
+
+1. All commitment must be docummented in issue tracker, from this will be created new branch checked out from `gh-master` branch
+2. After work is done create Merge request back to `gh-master`
+3. This branch will be synchronized back to our server once a day and runs tests if this are ok it will be merged to `master` branch
 
 ## Branches/tags naming
 

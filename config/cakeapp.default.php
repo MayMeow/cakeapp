@@ -42,8 +42,8 @@ return [
                  * Used to generate email address for outgoing emails and checking what incoming email is for ServiceDesk
                  */
                 'prefix' => 'css.id.',
-                'user' => 'users@cakehub.sk',
-                'password' => '33m9wt5Bn',
+                'user' => '',
+                'password' => '',
                 'server' => 'imap.websupport.sk',
                 'port' => '143'
             ]

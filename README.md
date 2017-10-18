@@ -4,43 +4,41 @@ May Meow Cloud Platform.
 
 ## Dependencies
 
-* Optional
-    * Apache
-* Backend
-    * PHP 7 or UP + dependencies
-    * Composer
-* Frontend
-    * NodeJS + npm
-    * Vue CLI
-
-For docker installation
-
-* PHP 5.5.9 or UP
-* Docker
-* Docker Compose
-* NGiNX as proxy
+* HTTP Server. For example: Apache. Having mod_rewrite is preferred, but by no means required.
+* PHP 5.6.0 or greater (including PHP 7.1).
+* mbstring PHP extension
+* intl PHP extension
+* simplexml PHP extension
+* redis PHP extension
+* postgres PHP extension
+* Redis server
+* PostgreSQL database server (if you want use MysQL change `app.config`)
+* Git
 
 ## Development
 
-* Backend
+For development you will need installed database server and Redis server or you can use lab right here from project (you will need Docker and Docker Compose)
 
 ```bash
+git clone repository cakeapp-ce
+cd cakeapp-ce/cakeapp-lab
+docker-compose up -d --build
+cd ../
 composer install
-bin/cake mcloud-startup
+```
 
-# to run server, it will listen on localhost:8765
+Open `config\app.php` and update IP adresses for Redis Cache and Database
+
+```bash
+bin/cake cake_app_migrations migrate
+# you can check if all migrations are UP
+bin/cake cake_app_migrations status
+# run server
 bin/cake server
 ```
 
-* Frontend
-
-```bash
-npm install
-
-#To build js files
-npm run build
-```
-
+* Open your favorite browser and navigate to `http://localhost:8765/users/add`. 1st user which you create will be admin. 
+* Now you can login into app with your credentials.
 
 ## Installation
 
@@ -67,15 +65,9 @@ To deploy to cloud run following commands
 
 ```bash
 git clone ssh://git@gitlab.cafe:2223/MayMeowCloudPlatform/maymeow-cloud.git {your-app-name}
-Composer install
-docker-compose up -d
-
-# DO NOT run following 2 lines
-# docker exec maymeowcloud_platform_1 mcloud-startup
-# docker exec -it maymeowcloud_platform_1 bin/cake mcloud_setup
-
-# This one run ONLY first time after installation
-docker exec -it maymeowcloud_platform_1 bin/cake migrations seed -p MCloudResources
+cd your-app-name
+cp docker-compose.default.yml docker-compose.yml
+docker-compose up -d --build
 ```
 
 ## Backup and restore database

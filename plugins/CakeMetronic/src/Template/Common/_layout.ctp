@@ -10,6 +10,7 @@
             <!--[html-partial:include:{"file":"partials\/_subheader-default.html"}]/-->
             <?= $this->Element('CakeMetronic._subheader-default') ?>
             <div class="m-content">
+                <?= $this->Flash->render() ?>
                 <?= $this->fetch('content') ?>
             </div>
         </div>

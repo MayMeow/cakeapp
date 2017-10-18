@@ -10,6 +10,8 @@ namespace App\Factories;
 
 use MayMeow\Crud\View\Menu\MenuDropdown;
 use MayMeow\Crud\View\Menu\MenuItem;
+use CakeMetronic\Crud\View\Menu\MetronicNavDropdown;
+use CakeMetronic\Crud\View\Menu\MetronicNavItem;
 
 /**
  * Class MenuFactory
@@ -23,50 +25,50 @@ class MenuFactory
             /**
              * Activity
              */
-            new MenuDropdown('<i class="far fa-database"></i> Activity', ['prefix' => false, 'plugin' => 'CakeActivity', 'controller' => 'Cards', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fa fa-clone"></i> Cards', ['plugin' => 'CakeActivity', 'controller' => 'Cards', 'action' => 'index'], ['escape' => false])
+            new MetronicNavDropdown('Activity', ['prefix' => false, 'plugin' => 'CakeActivity', 'controller' => 'Cards', 'action' => 'index'], ['escape' => false, 'icon' => 'flaticon-line-graph'], [
+                new MetronicNavItem('Cards', ['plugin' => 'CakeActivity', 'controller' => 'Cards', 'action' => 'index'], ['escape' => false, 'icon' => 'fa fa-cards'])
             ]),
             /**
              * CakeAuth
              */
-            new MenuDropdown('<i class="far fa-shield-alt"></i> IAM & Admin', ['prefix' => false, 'plugin' => 'CakeAuth', 'controller' => 'Users', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fa fa-user"></i> Users', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'Users'], ['escape' => false]),
-                new MenuItem('<i class="fa fa-cube"></i> Auth Applications', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'AuthApplications'], ['escape' => false]),
-                new MenuItem('<i class="fa fa-key"></i> SSH Keys', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'SshKeys'], ['escape' => false]),
+            new MetronicNavDropdown('IAM & Admin', ['prefix' => false, 'plugin' => 'CakeAuth', 'controller' => 'Users', 'action' => 'index'], ['escape' => false, 'icon' => 'la la-shield'], [
+                new MetronicNavItem('Users', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'Users'], ['escape' => false]),
+                new MetronicNavItem('Auth Applications', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'AuthApplications'], ['escape' => false]),
+                new MetronicNavItem('SSH Keys', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'SshKeys'], ['escape' => false]),
             ]),
             /**
              * MCLoudResources
              */
-            new MenuDropdown('<i class="far fa-cube"></i> Resources', ['prefix' => false, 'plugin' => 'CakeResource', 'controller' => 'Projects', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fa fa-users"></i> Projects', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Projects'], ['escape' => false, 'class' => 'nav-link']),
-                new MenuItem('<i class="fa fa-suitcase"></i> Companies', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
-                new MenuItem('<i class="fa fa-phone"></i> Contacts', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
+            new MetronicNavDropdown('Resources', ['prefix' => false, 'plugin' => 'CakeResource', 'controller' => 'Projects', 'action' => 'index'], ['escape' => false, 'icon' => 'flaticon-app'], [
+                new MetronicNavItem('Projects', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Projects'], ['escape' => false, 'class' => 'nav-link']),
+                new MetronicNavItem('Companies', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
+                new MetronicNavItem('Contacts', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
             ]),
             /**
              * CakeStorage
              */
-            new MenuDropdown('<i class="far fa-server"></i> Storage', ['prefix' => false, 'plugin' => 'CakeStorage', 'controller' => 'GitRepositories', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fab fa-git"></i> Code Repositories', ['plugin' => 'CakeStorage', 'action' => 'index', 'controller' => 'GitRepositories'], ['escape' => false, 'class' => 'nav-link']),
-                new MenuItem('<i class="fab fa-bitbucket"></i> Buckets', ['plugin' => 'CakeStorage', 'action' => 'index', 'controller' => 'Buckets'], ['escape' => false, 'class' => 'nav-link']),
+            new MetronicNavDropdown('Storage', ['prefix' => false, 'plugin' => 'CakeStorage', 'controller' => 'GitRepositories', 'action' => 'index'], ['escape' => false, 'icon' => 'flaticon-open-box'], [
+                new MetronicNavItem('Code Repositories', ['plugin' => 'CakeStorage', 'action' => 'index', 'controller' => 'GitRepositories'], ['escape' => false, 'class' => 'nav-link']),
+                new MetronicNavItem('Buckets', ['plugin' => 'CakeStorage', 'action' => 'index', 'controller' => 'Buckets'], ['escape' => false, 'class' => 'nav-link']),
             ]),
             /**
              * MayCA
              */
-            new MenuDropdown('<i class="far fa-certificate"></i> CA', ['prefix' => false, 'plugin' => 'MayCa', 'controller' => 'Certificates', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fa fa-key"></i> Certificates', ['plugin' => 'MayCa', 'controller' => 'Certificates', 'action' => 'index'], ['escape' => false])
+            new MetronicNavDropdown('CA', ['prefix' => false, 'plugin' => 'MayCa', 'controller' => 'Certificates', 'action' => 'index'], ['escape' => false, 'icon' => 'flaticon-lock-1'], [
+                new MetronicNavItem('Certificates', ['plugin' => 'MayCa', 'controller' => 'Certificates', 'action' => 'index'], ['escape' => false])
             ]),
             /**
              * CakeService
              */
-            new MenuDropdown('<i class="far fa-clipboard"></i> Service desk', ['prefix' => false, 'plugin' => 'CakeService', 'controller' => 'Issues', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fa fa-exclamation"></i> Issues', ['plugin' => 'CakeService', 'controller' => 'Issues', 'action' => 'index'], ['escape' => false]),
-                new MenuItem('<i class="fa fa-map-signs"></i> Milestones', ['plugin' => 'CakeService', 'controller' => 'Milestones', 'action' => 'index'], ['escape' => false])
+            new MetronicNavDropdown('Service desk', ['prefix' => false, 'plugin' => 'CakeService', 'controller' => 'Issues', 'action' => 'index'], ['escape' => false, 'icon' => 'flaticon-tea-cup'], [
+                new MetronicNavItem('Issues', ['plugin' => 'CakeService', 'controller' => 'Issues', 'action' => 'index'], ['escape' => false]),
+                new MetronicNavItem('Milestones', ['plugin' => 'CakeService', 'controller' => 'Milestones', 'action' => 'index'], ['escape' => false])
             ]),
             /**
              * CakeMonitoring
              */
-            new MenuDropdown('<i class="far fa-chart-bar"></i> Monitoring', ['prefix' => false, 'plugin' => 'CakeLogs', 'controller' => 'CloudLogs', 'action' => 'index'], ['escape' => false], [
-                new MenuItem('<i class="fa fa-dashboard"></i> Logs', ['plugin' => 'CakeLogs', 'action' => 'index', 'controller' => 'CloudLogs'], ['escape' => false]),
+            new MetronicNavDropdown('Monitoring', ['prefix' => false, 'plugin' => 'CakeLogs', 'controller' => 'CloudLogs', 'action' => 'index'], ['escape' => false, 'icon' => 'flaticon-analytics'], [
+                new MetronicNavItem('Logs', ['plugin' => 'CakeLogs', 'action' => 'index', 'controller' => 'CloudLogs'], ['escape' => false]),
             ]),
         ];
     }

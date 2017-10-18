@@ -164,7 +164,7 @@ class GitRepositoriesController extends AppController
             $gitRepository->default_branch = 'master';
 
             if ($this->GitRepositories->save($gitRepository)) {
-                $this->Flash->success(__('The git repository has been saved.'));
+                $this->Flash->success(__('The git repository has been saved.'), ['plugin' => 'CakeMetronic']);
 
                 $repositoryName = $gitRepository->namespace . DS . $gitRepository->slug . '.git';
 
@@ -179,7 +179,7 @@ class GitRepositoriesController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The git repository could not be saved. Please, try again.'));
+            $this->Flash->error(__('The git repository could not be saved. Please, try again.'), ['plugin' => 'CakeMetronic']);
         }
         $users = $this->GitRepositories->Users->find('list', ['limit' => 200]);
         $this->set('namespaces', $this->_getNamespaces());
@@ -291,12 +291,12 @@ class GitRepositoriesController extends AppController
 
         if ($process->isSuccessful()) {
             if ($this->GitRepositories->delete($gitRepository)) {
-                $this->Flash->success(__('The git repository has been deleted.'));
+                $this->Flash->success(__('The git repository has been deleted.'), ['plugin' => 'CakeMetronic']);
             } else {
-                $this->Flash->error(__('The git repository could not be deleted. Please, try again.'));
+                $this->Flash->error(__('The git repository could not be deleted. Please, try again.'), ['plugin' => 'CakeMetronic']);
             }
         } else {
-            $this->Flash->error(__('Could not delete project folder. Try again later.'));
+            $this->Flash->error(__('Could not delete project folder. Try again later.'), ['plugin' => 'CakeMetronic']);
         }
         return $this->redirect(['action' => 'index']);
     }
