@@ -199,3 +199,16 @@ publish artifacts:
         paths:
             - .
         expire_in: 7 days
+
+# Publishing for github
+publish to gitlab:
+    image: registry.cakehub.sk/cakeci/github-deploy:latest
+    stage: deploy
+    environment:
+        name: staging
+    only:
+        - github-master
+    script:
+        - git@github.com:CakeAppSK/cakeapp-ce.git github-master
+    <<: *run-on-do-docker
+    when: manual
