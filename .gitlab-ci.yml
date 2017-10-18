@@ -209,6 +209,6 @@ publish to gitlab:
     only:
         - github-master
     script:
-        - git@github.com:CakeAppSK/cakeapp-ce.git github-master
+        - git-push git@github.com:CakeAppSK/cakeapp-ce.git github-master
     <<: *run-on-do-docker
     when: manual
