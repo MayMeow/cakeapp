@@ -1,6 +1,6 @@
 <?php $this->extend('CakeMetronic./Common/_layout'); ?>
 
-<?php $this->assign('page-title', 'Users'); ?>
+<?php $this->assign('page-title', 'Code Repositories'); ?>
 
 <?php $this->start('header-dropdown-content'); ?>
 <li class="m-nav__item">
@@ -20,13 +20,13 @@
 <li class="m-nav__separator">-</li>
 <li class="m-nav__item">
 <a href="" class="m-nav__link">
-    <span class="m-nav__link-text">Base</span>
+    <span class="m-nav__link-text">Storage</span>
 </a>
 </li>
 <li class="m-nav__separator">-</li>
 <li class="m-nav__item">
 <a href="" class="m-nav__link">
-    <span class="m-nav__link-text">Navs</span>
+    <span class="m-nav__link-text">Code Repositories</span>
 </a>
 </li>
 <?php $this->end() ?>
@@ -38,20 +38,20 @@
         <i class="flaticon-exclamation m--font-brand"></i>
     </div>
     <div class="m-alert__text">
-        Here you can manage users on your server
+        Code repositories can be used to store and tracking your source code. In order to use it you mush have installed GIT client in your computer.
     </div>
 </div>
 
 
 
-<?php if (count($users) > 0) : ?>
+<?php if (count($gitRepositories) > 0) : ?>
 
     <div class="m-portlet m-portlet--mobile">
         <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
                     <div class="m-portlet__head-text">
-                        Users index
+                        Repository index
                     </div>
                 </div>
             </div>
@@ -64,32 +64,25 @@
                 <thead class="thead-default">
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('username') ?></th>
+                    <th>Name</th>
+                    <th>User</th>
 
-                    <th><?= $this->Paginator->sort('role') ?></th>
-                    <th><?= $this->Paginator->sort('verified') ?></th>
-                    <th>2FA</th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-
-                    <th class="actions text-center"><?= __('Actions') ?></td>
+                    <th class="actions text-center" style="width: 150px"><?= __('Actions') ?></td>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($users as $user): ?>
+                <?php foreach ($gitRepositories as $gitRepository): ?>
                     <tr>
-                        <td><?= $this->Number->format($user->id) ?></td>
+                        <td><?= $this->Number->format($gitRepository->id) ?></td>
                         <td>
-                            <strong><i class="fa fa-user-circle"></i></strong>
-                            <?= h($user->username) ?>
+                        <?= $gitRepository->namespace ?> / <strong><?= $gitRepository->slug ?></strong>
+                        <p><small><?= $this->Emoji->parse($gitRepository->description) ?></small></p>
                         </td>
-
-                        <td><label class="label label-info"><?= h($user->role) ?></label></td>
-                        <td><?= h($user->verified) ?></td>
-                        <td><?= $user->two_fa_secret ? '<i class="fa fa-lock text-success"></i>' : '<i class="fa fa-times"></i>' ?></td>
-                        <td><?= h($user->created) ?></td>
-
-                        <td class="actions text-center">
-                        <?= $this->element('CakeMetronic.Table/_actions', ['id' => $user->id])?>
+                        <td>
+                        <?= $gitRepository->user->username ?>
+                        </td>
+                        <td>
+                        <?= $this->element('CakeMetronic.Table/GitRepositories/_actions', ['id' => $gitRepository->id, 'namespace' => $gitRepository->namespace, 'slug' => $gitRepository->slug]) ?>
                         </td>
                     </tr>
 
@@ -123,14 +116,14 @@
                     <i class="flaticon-add"></i>
                 </span>
                 <h3 class="m-portlet__head-text">
-                    You dont have any Users now
+                    You dont have any Code Repositories now
                 </h3>
             </div>
         </div>
     </div>
     <div class="m-portlet__body text-center">
         <p>You can create one by clicking button bellow</p>
-        <?= $this->Html->link(__('Add new User'), ['action' => 'add'], ['class' => 'btn m-btn--pill m-btn--air btn-outline-accent m-btn m-btn--outline-2x']); ?>
+        <?= $this->Html->link(__('Add new Repository'), ['action' => 'add'], ['class' => 'btn m-btn--pill m-btn--air btn-outline-accent m-btn m-btn--outline-2x']); ?>
     </div>
 </div>
 

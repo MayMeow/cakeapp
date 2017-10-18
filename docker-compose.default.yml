@@ -1,0 +1,73 @@
+version: '2.1'
+
+services:
+    cakeapp:
+        build: .
+        volumes:
+            - /var/www/html
+            - ./volumes/cakeapp/ssh:/cakeapp/.ssh:rw
+            - ./volumes/cakeapp/git_data:/cakeapp/git-data:rw
+            - ./volumes/cakeapp/git_data:/cakeapp/ca-data:rw
+            - ./volumes/cakeapp/user_data:/var/www/html/webroot/user-data:rw
+            - ./volumes/cakeapp/logs:/var/www/html/logs:rw
+
+    php:
+        build: ./MayMeow/cakephp-fpm
+        depends_on:
+            - cakeapp
+        restart: always
+        volumes_from:
+            - cakeapp
+        environment:
+            MYSQL_HOST: db
+            MYSQL_PORT: 5432
+            MYSQL_USER: postgres
+            MYSQL_PASSWORD: cak3appd4tabase
+            MYSQL_DB_NAME: cakeapp
+            DEBUG: "false"
+            REDIS_SERVER: redis
+            REDIS_SERVER_PORT: 6379
+            EMAIL_TRANSPORT: Smtp
+            EMAIL_SMTP_HOST: "smtp.websupport.sk"
+            EMAIL_SMTP_PORT: 25
+            EMAIL_SMTP_USER: ""
+            EMAIL_SMTP_PASSWORD: ""
+
+
+
+    redis:
+        build: ./MayMeow/redis
+        restart: always
+
+    db:
+        image: postgres
+        depends_on:
+            - cakeapp
+        volumes:
+            - ./volumes/db/data:/var/lib/postgresql/data
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: cak3appd4tabase
+            POSTGRES_DB: cakeapp
+
+    nginx:
+        build : ./MayMeow/nginx
+        depends_on:
+            - cakeapp
+            - php
+            - db
+        restart: always
+        volumes_from:
+            - cakeapp
+        ports:
+            - "8099:80"
+
+    git:
+        build: ./MayMeow/git
+        depends_on:
+            - cakeapp
+        restart: always
+        volumes_from:
+            - cakeapp
+        ports:
+            - "2279:22"
