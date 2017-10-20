@@ -20,6 +20,10 @@
 
 <?php $this->end(); ?>
 
+<?php $this->start('page-scripts'); ?>
+<?= $this->Html->script('CakeMetronic./demo/default/custom/components/portlets/tools'); ?>
+<?php $this->end(); ?>
+
 <?php $this->start('breadcrumb'); ?>
 <li class="m-nav__item m-nav__item--home">
     <a href="#" class="m-nav__link m-nav__link--icon">
@@ -55,17 +59,29 @@
 
 
 
-    <div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet m-portlet--mobile m-portlet--collapse" id="m_portlet_tools_2">
         <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon">
+                        <i class="flaticon-exclamation-1"></i>
+                    </span>
                     <div class="m-portlet__head-text">
                         Bucket informations
                     </div>
                 </div>
             </div>
+            <div class="m-portlet__head-tools">
+                <ul class="m-portlet__nav">
+                    <li class="m-portlet__nav-item">
+                        <a href="#" data-portlet-tool="toggle" class="m-portlet__nav-link m-portlet__nav-link--icon" title="" data-original-title="Collapse" style="">
+                            <i class="la la-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="m-portlet__body">
+        <div class="m-portlet__body" style="display: none">
 
             <div class="m-section">
                 <div class="m-section__content">
