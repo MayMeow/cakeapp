@@ -75,12 +75,12 @@ class BucketsController extends AppController
             'contain' => []
         ]);
 
-        $bucketFolder = Configure::read('CakeApp.Buckets.paths.buckets-data');
+        $bucketFolder = Configure::read('CakeApp.Buckets.paths');
 
         if ($folder == null) {
-            $dir = new Folder($bucketFolder[0] . $bucket->uid);
+            $dir = new Folder($bucketFolder['hdd1-local'] . $bucket->uid);
         } else {
-            $dir = new Folder($bucketFolder[0] . $bucket->uid . DS . $folder);
+            $dir = new Folder($bucketFolder['hdd1-local'] . $bucket->uid . DS . $folder);
         }
 
         $files = $dir->read();

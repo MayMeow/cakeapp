@@ -75,7 +75,8 @@ return [
              * IF you set more paths, all files will be stored randomly in one of them
              */
             'paths' => [
-                'buckets-data' => [DATA_STORE . 'buckets-data' . DS]
+                'hdd1-local' => DATA_STORE . 'buckets-data' . DS,
+                'hdd2-local' => DS . 'path/to/disk/data' . DS . 'buckets-data' . DS,
             ]
         ],
 
