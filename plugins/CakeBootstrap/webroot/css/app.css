@@ -1802,3 +1802,35 @@ Avatar
   font-size: 14px;
   line-height: 14px;
 }
+
+/* Containers
+---------------------------------------------------
+ */
+
+.container-boxed {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+@media (min-width: 768px) {
+  .container-boxed {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container-boxed {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-boxed {
+    width: 990px;
+  }
+}
+.container-narrow {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+}
