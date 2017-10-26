@@ -5,10 +5,9 @@ services:
         build: .
         volumes:
             - /var/www/html
-            - ./volumes/cakeapp/ssh:/cakeapp/.ssh:rw
-            - ./volumes/cakeapp/git_data:/cakeapp/git-data:rw
-            - ./volumes/cakeapp/git_data:/cakeapp/ca-data:rw
             - ./volumes/cakeapp/user_data:/var/www/html/webroot/user-data:rw
+            - ./volumes/cakeapp/ssh:/cakeapp/.ssh:rw
+            - ./volumes/cakeapp/data:'/var/opt/cakeapp/data:rw
             - ./volumes/cakeapp/logs:/var/www/html/logs:rw
 
     php:

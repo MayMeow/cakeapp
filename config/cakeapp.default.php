@@ -60,7 +60,7 @@ return [
              * IF you set more paths, all files will be stored randomly in one of them
              */
             'paths' => [
-                'git-data' => [DATA_STORE . 'git-data' . DS . 'repositories' . DS],
+                'git-data' => '/var/opt/cakeapp/data/git-data/'
             ]
         ],
 
@@ -75,13 +75,13 @@ return [
              * IF you set more paths, all files will be stored randomly in one of them
              */
             'paths' => [
-                'buckets-data' => [DATA_STORE . 'buckets-data' . DS]
+                'buckets-data' => '/var/opt/cakeapp/data/buckets/'
             ]
         ],
 
         'Certificates' => [
             'paths' => [
-                'ca-data' => [DATA_STORE . 'ca-data' . DS]
+                'ca-data' => '/var/opt/cakeapp/data/certificates/'
             ]
         ]
     ],
