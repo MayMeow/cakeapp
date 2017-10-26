@@ -4,8 +4,8 @@
 Cms
 <?php $this->end() ?>
 <!-- Header -->
-<div class="cinema border-bottom-gray pBot10 with-nav-tabs bg-white" style="height: 40px">
-    <div class="container-boxed">
+<div class="cinema with-nav-tabs bg-white" style="height: 40px">
+    <div class="container container-boxed border-bottom-gray pBot5">
         <div class="pull-right" style="margin: 5px 0 0 0">
             <?= $this->fetch('header-buttons') ?>
         </div>
@@ -23,7 +23,7 @@ Cms
 <main id="main-container">
 
     <!-- Content -->
-    <div class="container">
+    <div class="container-boxed">
         <?= $this->fetch('content') ?>
     </div>
     <!-- Content -->

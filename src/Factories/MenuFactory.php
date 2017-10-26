@@ -41,8 +41,8 @@ class MenuFactory
              */
             new MetronicNavDropdown('Resources', ['prefix' => false, 'plugin' => 'CakeResource', 'controller' => 'Projects', 'action' => 'index'], ['escape' => false, 'icon' => 'flaticon-app'], [
                 new MetronicNavItem('Projects', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Projects'], ['escape' => false, 'class' => 'nav-link']),
-                new MetronicNavItem('Companies', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
-                new MetronicNavItem('Contacts', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
+                //new MetronicNavItem('Companies', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
+                //new MetronicNavItem('Contacts', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
             ]),
             /**
              * CakeStorage

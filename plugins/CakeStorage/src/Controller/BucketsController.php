@@ -78,9 +78,9 @@ class BucketsController extends AppController
         $bucketFolder = Configure::read('CakeApp.Buckets.paths.buckets-data');
 
         if ($folder == null) {
-            $dir = new Folder($bucketFolder[0] . $bucket->uid);
+            $dir = new Folder($bucketFolder . $bucket->uid);
         } else {
-            $dir = new Folder($bucketFolder[0] . $bucket->uid . DS . $folder);
+            $dir = new Folder($bucketFolder . $bucket->uid . DS . $folder);
         }
 
         $files = $dir->read();
@@ -145,7 +145,7 @@ class BucketsController extends AppController
             if ($this->Buckets->save($bucket)) {
 
                 //create data folder after creation bucket
-                $this->_folderExists($bucketFolder[0] . $bucket->uid);
+                $this->_folderExists($bucketFolder . $bucket->uid);
                 $this->Flash->success(__('The bucket has been saved.'));
 
                 // $resourceManager = new ResourcesManager();
