@@ -4,11 +4,11 @@ RUN apt-get update && apt-get install -y openssh-server git
 RUN mkdir /var/run/sshd
 RUN echo 'root:screencast' | chpasswd
 
-RUN adduser git --home /cakeapp/git-data/repositories
+RUN adduser git --home /var/opt/cakeapp/data/repositories
 RUN echo 'git:c4ke!App' | chpasswd
 
-RUN mkdir /cakeapp/git-data/repositories/.ssh
-RUN chmod 700 /cakeapp/git-data/repositories/.ssh
+RUN mkdir /var/opt/cakeapp/data/repositories/.ssh
+RUN chmod 700 /var/opt/cakeapp/data/repositories/.ssh
 
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -i 's/StrictModes yes/StrictModes no/' /etc/ssh/sshd_config
