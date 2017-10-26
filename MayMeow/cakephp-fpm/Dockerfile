@@ -28,7 +28,7 @@ RUN curl -sSL https://getcomposer.org/installer | php \
 # Redis extension installation and configure
 RUN git clone https://github.com/phpredis/phpredis.git \
     && cd phpredis \
-    && git checkout php7 \
+    && git checkout master \
     && phpize \
     && ./configure \
     && make && make install \
