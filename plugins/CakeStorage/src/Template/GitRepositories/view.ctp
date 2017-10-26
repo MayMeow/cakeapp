@@ -1,4 +1,4 @@
-<?php $this->extend('CakeMetronic./Common/_layout'); ?>
+<?php $this->extend('CakeApp.Common/view-boxed'); ?>
 
 <?php $this->assign('page-title', 'Repository'); ?>
 
@@ -39,7 +39,7 @@
 
 <?php $this->start('projects-description'); ?>
 <div class="border-bottom-gray project-description">
-    <div class="container">
+    <div class="container container-boxed pBot10">
         <div style="padding-top: 16px; padding-bottom: 10px; font-size: 1.17em">
             <?= $this->Emoji->parse($gitRepository->description) ?>
         </div>

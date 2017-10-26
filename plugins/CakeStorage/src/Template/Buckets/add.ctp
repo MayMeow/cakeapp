@@ -54,7 +54,7 @@ Cms
                     <?php
                     echo $this->Form->input('name');
                     //echo $this->Form->input('uid');
-                    echo $this->Form->input('resource_group_id', ['options' => $groups]);
+                    echo $this->Form->input('project_id', ['options' => $groups]);
                     ?>
                 </div>
                 <div class="form-action">

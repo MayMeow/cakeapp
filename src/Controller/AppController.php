@@ -98,7 +98,7 @@ class AppController extends Controller
          * for more ingormation see https://book.cakephp.org/3.0/en/views/themes.html
          * TODO theme specification for CA2016 APP
          */
-        $this->viewBuilder()->theme('CakeMetronic');
+        //$this->viewBuilder()->theme('CakeBootstrap');
 
         //Default theme for CakeBootstrap
         $theme = Configure::read('CodeAdvent.adminTheme');

@@ -34,7 +34,7 @@ class GitRepository {
     public function __construct($repository = null)
     {
         $this->_getBasePath();
-        $this->repository = $this->basePath[0] . $repository;
+        $this->repository = $this->basePath . $repository;
     }
 
     protected function _getBasePath()

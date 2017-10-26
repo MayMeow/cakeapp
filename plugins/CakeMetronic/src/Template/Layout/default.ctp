@@ -66,6 +66,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Page Snippets -->
 <!--<script src="./assets/app/js/dashboard.js" type="text/javascript"></script>-->
 <?= $this->Html->script('CakeMetronic./app/js/dashboard'); ?>
+<?= $this->fetch('page-scripts') ?>
 <!--end::Page Snippets -->
 </body>
 <!-- end::Body -->

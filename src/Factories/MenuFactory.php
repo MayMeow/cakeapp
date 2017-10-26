@@ -31,18 +31,18 @@ class MenuFactory
             /**
              * CakeAuth
              */
-            new MetronicNavDropdown('IAM & Admin', ['prefix' => false, 'plugin' => 'CakeAuth', 'controller' => 'Users', 'action' => 'index'], ['escape' => false, 'icon' => 'la la-shield'], [
+            /*new MetronicNavDropdown('IAM & Admin', ['prefix' => false, 'plugin' => 'CakeAuth', 'controller' => 'Users', 'action' => 'index'], ['escape' => false, 'icon' => 'la la-shield'], [
                 new MetronicNavItem('Users', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'Users'], ['escape' => false]),
                 new MetronicNavItem('Auth Applications', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'AuthApplications'], ['escape' => false]),
                 new MetronicNavItem('SSH Keys', ['plugin' => 'CakeAuth', 'action' => 'index', 'controller' => 'SshKeys'], ['escape' => false]),
-            ]),
+            ]),*/
             /**
              * MCLoudResources
              */
             new MetronicNavDropdown('Resources', ['prefix' => false, 'plugin' => 'CakeResource', 'controller' => 'Projects', 'action' => 'index'], ['escape' => false, 'icon' => 'flaticon-app'], [
                 new MetronicNavItem('Projects', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Projects'], ['escape' => false, 'class' => 'nav-link']),
-                new MetronicNavItem('Companies', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
-                new MetronicNavItem('Contacts', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
+                //new MetronicNavItem('Companies', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Companies'], ['escape' => false, 'class' => 'nav-link']),
+                //new MetronicNavItem('Contacts', ['plugin' => 'CakeResource', 'action' => 'index', 'controller' => 'Contacts'], ['escape' => false, 'class' => 'nav-link']),
             ]),
             /**
              * CakeStorage
@@ -80,6 +80,8 @@ class MenuFactory
                 new MenuItem('<i class="fa fa-user"></i> Users', ['action' => 'index', 'plugin' => 'CakeAuth', 'controller' => 'Users'], ['escape' => false]),
                 new MenuItem('<i class="fa fa-cube"></i> Auth Applications', ['action' => 'index', 'plugin' => 'CakeAuth', 'controller' => 'AuthApplications'], ['escape' => false]),
                 new MenuItem('<i class="fa fa-key"></i> SSH Keys', ['action' => 'index', 'plugin' => 'CakeAuth', 'controller' => 'SshKeys'], ['escape' => false]),
+                new MenuItem('<i class="fa fa-cog"></i> App Setting', ['action' => 'index', 'plugin' => 'CakeConfigure', 'controller' => 'ApplicationSettings'], ['escape' => false]),
+                new MenuItem('<i class="fa fa-certificate"></i> License', ['action' => 'index', 'plugin' => 'CakeConfigure', 'controller' => 'ApplicationSettings'], ['escape' => false]),
                 //new MenuItem('<i class="fab fa-git"></i> Repositories', ['action' => 'index', 'plugin' => 'CakeStorage', 'controller' => 'GitRepositories'], ['escape' => false, 'class' => 'nav-link']),
                 //new MenuItem('<i class="fab fa-bitbucket"></i> Buckets', ['action' => 'index', 'plugin' => 'CakeStorage', 'controller' => 'Buckets'], ['escape' => false, 'class' => 'nav-link']),
                 //new MenuItem('<i class="fa fa-users"></i> Groups', ['action' => 'index', 'plugin' => 'MCloudResources', 'controller' => 'ResourceGroups'], ['escape' => false, 'class' => 'nav-link']),
