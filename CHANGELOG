@@ -1,6 +1,17 @@
-v 17.10 (unreleased)
+v 2017.11 (unreleased)
 
-* Probably can be added simple CMS system for managing pages
+v 2017.10
+
+ADD Side menu factory for all plugins
+ADD Access right for Companies and contacts
+ADD New Admin section for CakeAuth
+ADD Setup development environment with Vagrant
+UPDATE Update side menu rendering
+FIX padding under clone address bar
+FIX Access right for Activity
+FIX Wrong access rights on issues api
+FIX Unterminated qoted string
+FIX Run all tests on all branches
 
 v 2017.9.3
 
