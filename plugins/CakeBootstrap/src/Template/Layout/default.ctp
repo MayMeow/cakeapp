@@ -25,6 +25,7 @@
     <!-- Custom styles for this template -->
     <!-- <link href="sticky-footer-navbar.css" rel="stylesheet">-->
     <?php echo $this->Html->css('CakeBootstrap.app'); ?>
+    <?= $this->Html->css('CakeBootstrap.twbs/indigo') ?>
 
     <!-- Cake Highlight -->
     <?php echo $this->Html->css('CakeHighlight.atom-one-dark'); ?>
@@ -49,8 +50,8 @@
 <body class="<?= $this->fetch('page-bg-class') ?>">
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-cake navbar-inverse navbar-fixed-top" style="font-size: 16px;">
-    <div class="container">
+<nav class="navbar navbar-cake navbar-default navbar-fixed-top">
+    <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" style="color: #ffffff;" href="/">
                 CakeApp
@@ -72,13 +73,20 @@
                     ]) ?>">Issues</a></li>
                 <li><a href="<?= $this->Url->build([
                         'prefix' => false, 'plugin' => 'CakeResource',
-                        'controller' => 'ResourceGroups', 'action' => 'index'
-                    ]) ?>">Groups</a></li>
+                        'controller' => 'Projects', 'action' => 'index'
+                    ]) ?>">Projects</a></li>
                 <li><a href="<?= $this->Url->build([
                         'prefix' => false, 'plugin' => 'CakeStorage',
                         'controller' => 'GitRepositories', 'action' => 'index'
                     ]) ?>">Explore</a></li>
-                <li><a href="#">Gist</a></li>
+                <li><a href="<?= $this->Url->build([
+                        'prefix' => false, 'plugin' => 'CakeStorage',
+                        'controller' => 'GitRepositories', 'action' => 'index'
+                    ]) ?>">Leila CI</a></li>
+                <li><a href="<?= $this->Url->build([
+                        'prefix' => 'admin', 'plugin' => 'CakeAuth',
+                        'controller' => 'users', 'action' => 'index'
+                    ]) ?>"><i class="fa fa-cog"></i></a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -109,21 +117,6 @@
     </div>
 </div>
 <!-- End page Content -->
-
-<footer class="footer">
-    <div class="container">
-        <div class="row" style="border-top: 1px solid #e5e5e5">
-            <div class="col-md-5">
-                <p class="text-muted"><i class="fa fa-code"></i> with <i class="fa fa-heart-o text-smooth"></i> by <a
-                            href="#">CakeSource</a>, v 17.8.5 beta
-                </p>
-            </div>
-            <div class="col-md-2 text-center"><p class="text-muted"><?= $this->Svg->cakeappIcon(['width' => '16px', 'height' => '16px']) ?></p></div>
-            <div class="col-md-5 text-right"><p class="text-muted">&copy; 2017 mcloud <label class="label label-danger">Beta</label>
-                </p></div>
-        </div>
-    </div>
-</footer>
 
 
 <!-- Bootstrap core JavaScript

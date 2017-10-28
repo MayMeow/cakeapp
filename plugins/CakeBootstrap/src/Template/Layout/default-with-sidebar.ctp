@@ -73,12 +73,16 @@
                     ]) ?>">Issues</a></li>
                 <li><a href="<?= $this->Url->build([
                         'prefix' => false, 'plugin' => 'CakeResource',
-                        'controller' => 'ResourceGroups', 'action' => 'index'
-                    ]) ?>">Groups</a></li>
+                        'controller' => 'Projects', 'action' => 'index'
+                    ]) ?>">Projects</a></li>
                 <li><a href="<?= $this->Url->build([
                         'prefix' => false, 'plugin' => 'CakeStorage',
                         'controller' => 'GitRepositories', 'action' => 'index'
                     ]) ?>">Explore</a></li>
+                <li><a href="<?= $this->Url->build([
+                        'prefix' => false, 'plugin' => 'CakeStorage',
+                        'controller' => 'GitRepositories', 'action' => 'index'
+                    ]) ?>">Leila CI</a></li>
                 <li><a href="<?= $this->Url->build([
                         'prefix' => 'admin', 'plugin' => 'CakeAuth',
                         'controller' => 'users', 'action' => 'index'

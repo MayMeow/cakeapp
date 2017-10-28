@@ -1,10 +1,11 @@
 #!/bin/bash
 
 echo -ne "Update folder and files rights..."
-chmod 777 /cakeapp/git-data
+# chmod 777 /cakeapp/git-data
 chmod 777 /var/www/html/webroot/user-data
 chmod 777 /cakeapp/.ssh
-chown www-data:www-data /cakeapp/git-data/repositories
+# chown www-data:www-data /cakeapp/git-data/repositories
+chown www-data:www-data /var/opt/cakeapp/data
 chmod +x /var/www/html/bin/cake
 
 if [ ! -f /var/www/html/vendor/autoload.php ]; then
