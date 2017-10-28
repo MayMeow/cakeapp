@@ -43,8 +43,6 @@ class CakeAppMigrationsShell extends Shell
         $this->dispatchShell('migrations migrate -p CakeStorage');
         $this->dispatchShell('migrations migrate -p CakeNetworking');
         $this->dispatchShell('migrations migrate -p CakeResource');
-        $this->dispatchShell('migrations migrate -p MCloudHome');
-        $this->dispatchShell('migrations migrate -p MCloudCompute');
         $this->dispatchShell('migrations migrate -p CloudToDo');
         $this->dispatchShell('migrations migrate -p MayCa');
         $this->dispatchShell('migrations migrate -p CakeService');
@@ -66,8 +64,6 @@ class CakeAppMigrationsShell extends Shell
         $this->dispatchShell('migrations status -p CakeStorage');
         $this->dispatchShell('migrations status -p CakeNetworking');
         $this->dispatchShell('migrations status -p CakeResource');
-        $this->dispatchShell('migrations status -p MCloudHome');
-        $this->dispatchShell('migrations status -p MCloudCompute');
         $this->dispatchShell('migrations status -p CloudToDo');
         $this->dispatchShell('migrations status -p MayCa');
         $this->dispatchShell('migrations status -p CakeService');
