@@ -1,4 +1,4 @@
-<?php $this->extend('CakeApp.Common/view'); ?>
+<?php $this->extend('CakeApp.Common/index'); ?>
 
 <?php $this->assign('page-title', 'Repositories'); ?>
 
