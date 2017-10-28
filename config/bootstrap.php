@@ -261,10 +261,6 @@ Plugin::load('CakeNetworking', ['bootstrap' => false, 'routes' => true]);
 
 Plugin::load('CakeResource', ['bootstrap' => false, 'routes' => true]);
 
-Plugin::load('MCloudCompute', ['bootstrap' => false, 'routes' => true]);
-
-Plugin::load('MCloudHome', ['bootstrap' => false, 'routes' => true]);
-
 Plugin::load('CloudToDo', ['bootstrap' => false, 'routes' => true]);
 
 Plugin::load('CakeCommunication', ['bootstrap' => false, 'routes' => true]);

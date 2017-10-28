@@ -207,8 +207,8 @@ publish to gitlab:
     environment:
         name: staging
     only:
-        - github-master
+        - master
     script:
-        - git-push git@github.com:CakeAppSK/cakeapp-ce.git github-master
+        - git-push git@github.com:HS0808/cakeapp.git ${CI_COMMIT_REF_NAME}
     <<: *run-on-do-docker
     when: manual
