@@ -1837,3 +1837,36 @@ Avatar
   padding-left: 100px;
   padding-right: 100px;
 }
+
+/*
+HEXAGON
+---------------------------------------------------------------
+ */
+
+.hexagon {
+  position: relative;
+  width: 24px;
+  height: 13.86px;
+  background-color: #6E329B;
+  margin: 6.93px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 6.93px solid #6E329B;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 6.93px solid #6E329B;
+}
