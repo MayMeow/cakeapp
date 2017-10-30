@@ -42,7 +42,7 @@
                 <table class="table table-hover table-vcenter">
                     <thead>
                     <tr>
-                        <td><?= $this->Paginator->sort('name') ?></td>
+                        <td class="col-md-6"><?= $this->Paginator->sort('name') ?></td>
                         <td><?= $this->Paginator->sort('user_id') ?></td>
                         <td class="actions text-center"><?= __('Actions') ?></td>
                     </tr>
@@ -50,11 +50,14 @@
                     <tbody>
                     <?php foreach ($resourceGroups as $resourceGroup): ?>
                         <tr>
-                            <td><label class="label label-info"><?= $this->Number->format($resourceGroup->id) ?></label> <?= h($resourceGroup->name) ?></td>
+                            <td>
+                                <div class="hexagon" style="display: inline-flex"></div>
+                                <?= h($resourceGroup->slug) ?><span class="text-gray-dark">.cakeapp.sk</span>
+                            </td>
                             <td>
                                 <?= $resourceGroup->has('user') ? $this->Html->link($resourceGroup->user->username, ['controller' => 'Users', 'action' => 'view', $resourceGroup->user->id]) : '' ?>
                             </td>
-                            <td class="actions text-center">
+                            <td class="actions text-center col-md-2">
                                 <div class="btn-group">
                                     <?= $this->Html->link(__('View'), ['action' => 'view', $resourceGroup->slug], ['class' => 'btn btn-xs btn-default']) ?>
                                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $resourceGroup->id], ['class' => 'btn btn-xs btn-default']) ?>
